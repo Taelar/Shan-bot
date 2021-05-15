@@ -1,6 +1,6 @@
 const resources = require('../resources/perceval.json')
 const emojisUtils = require('../utils/emojis.utils')
-const MAX_RAND = 2
+const MAX_RAND = 200
 
 module.exports = {
 	execute(message, state) {
