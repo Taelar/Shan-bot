@@ -2,6 +2,7 @@ const fs = require('fs')
 const { Client, Collection } = require('discord.js')
 const { prefix, token, messageId, availableRoles } = require('./config.json')
 const onMessage = require('./events/onMessage')
+const commands = require('./commands/commands')
 
 const client = new Client({
 	partials: ['USER', 'MESSAGE', 'CHANNEL', 'REACTION', 'GUILD_MEMBER'],
@@ -10,7 +11,10 @@ client.commands = new Collection()
 
 const commandFiles = fs
 	.readdirSync('./commands')
-	.filter((file) => file.endsWith('.js'))
+	.filter(
+		(file) =>
+			file.endsWith('.js') && commands.activated.includes(file.split('.')[0]),
+	)
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`)
