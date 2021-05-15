@@ -1,6 +1,6 @@
 const { Collection } = require('discord.js')
 module.exports = {
-	execute(message, prefix, client, cooldowns) {
+	execute(message, prefix, client, state) {
 		if (!message.content.startsWith(prefix) || message.author.bot) return
 
 		const args = message.content.slice(prefix.length).split(/ +/)
@@ -44,12 +44,12 @@ module.exports = {
 			}
 		}
 
-		if (!cooldowns.has(command.name)) {
-			cooldowns.set(command.name, new Collection())
+		if (!state.cooldowns.has(command.name)) {
+			state.cooldowns.set(command.name, new Collection())
 		}
 
 		const now = Date.now()
-		const timestamps = cooldowns.get(command.name)
+		const timestamps = state.cooldowns.get(command.name)
 		const cooldownAmount = (command.cooldown || 3) * 1000
 
 		if (timestamps.has(message.author.id)) {

@@ -17,20 +17,24 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command)
 }
 
-const cooldowns = new Collection()
+const state = require('./initialState.json')
+state.cooldowns = new Collection()
 
 client.once('ready', () => {
-	client.user.setActivity("!help pour avoir de l'aide")
-	console.log("Server Started & ready !")
+	client.user.setActivity(`vos conversations débiles (${prefix}help)`, {
+		type: 'WATCHING',
+	})
+	console.log('Server Started & ready !')
 })
 
 client.on('message', (message) => {
-	onMessage.execute(message, prefix, client, cooldowns)
-	console.log(message.content);
+	state.lastMessage = message
+	onMessage.execute(message, prefix, client, state)
+	console.log(message.content)
 })
 
 client.on('messageReactionAdd', async (reaction, user) => {
-	console.log('messageReactionAdd');
+	console.log('messageReactionAdd')
 	console.log(reaction, user)
 	if (!user) return
 	if (user.bot) return
@@ -66,7 +70,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 })
 
 client.on('messageReactionRemove', async (reaction, user) => {
-	console.log('messageReactionRemove');
+	console.log('messageReactionRemove')
 	console.log(reaction, user)
 	if (!user) return
 	if (user.bot) return
