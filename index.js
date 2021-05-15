@@ -28,8 +28,8 @@ client.once('ready', () => {
 })
 
 client.on('message', (message) => {
-	state.lastMessage = message
 	onMessage.execute(message, prefix, client, state)
+	state.lastMessage = message
 	console.log(message.content)
 })
 

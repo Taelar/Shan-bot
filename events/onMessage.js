@@ -1,6 +1,10 @@
 const { Collection } = require('discord.js')
+const automation = require('../automation/automation')
+
 module.exports = {
 	execute(message, prefix, client, state) {
+		automation.execute(message, state)
+
 		if (!message.content.startsWith(prefix) || message.author.bot) return
 
 		const args = message.content.slice(prefix.length).split(/ +/)
