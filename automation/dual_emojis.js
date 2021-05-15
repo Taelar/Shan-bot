@@ -1,4 +1,4 @@
-const emoteUtils = require('../utils/emotes.utils')
+const emoteUtils = require('../utils/emojis.utils')
 
 module.exports = {
 	execute(message, state) {

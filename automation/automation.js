@@ -1,6 +1,7 @@
-const tripleEmoji = require('./triple_emoji')
+const dualEmojis = require('./dual_emojis')
+const perceval = require('./perceval')
 
-const automationFunctions = [tripleEmoji]
+const automationFunctions = [dualEmojis, perceval]
 
 module.exports = {
 	execute(message, state) {
