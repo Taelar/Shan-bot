@@ -1,12 +1,12 @@
 import { EMOJI_REGEX, findEmoji } from './../utils/emojis.utils.js'
 
 export const dualEmojisAutomation = (message, state) => {
-	const { content, author } = message
+	const { content, channel } = message
 	const { lastMessage } = state
 	if (
 		content.match(EMOJI_REGEX) &&
-		content == lastMessage.content /* &&
-		author.id != lastMessage.author.id */
+		content == lastMessage.content &&
+		author.id != lastMessage.author.id
 	) {
 		const emojiName = content.split(':')[1]
 		let answer
@@ -19,7 +19,6 @@ export const dualEmojisAutomation = (message, state) => {
 				answer = content
 		}
 
-		state.lastMessage = ''
-		message.channel.send(answer)
+		channel.send(answer)
 	}
 }

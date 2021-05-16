@@ -5,6 +5,7 @@ export const onMessage = (message, prefix, client, state) => {
 	if (message.author.bot) return
 
 	automations(message, state)
+	state.lastMessage = message
 
 	if (!message.content.startsWith(prefix)) return
 
@@ -79,6 +80,4 @@ export const onMessage = (message, prefix, client, state) => {
 		console.error(error)
 		message.reply('Il y a eu un soucis en voulant executer cette commande	')
 	}
-
-	state.lastMessage = message
 }
