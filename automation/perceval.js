@@ -1,7 +1,7 @@
 import { PERCEVAL_QUOTES } from '../resources/perceval.js'
 import { findEmoji } from '../utils/emojis.utils.js'
 
-const MAX_RAND = 200
+const MAX_RAND = 100
 
 export const percevalAutomation = (message, state) => {
 	const rand = Math.floor(Math.random() * MAX_RAND + 1) // [1:200]

@@ -1,19 +1,29 @@
-import { EMOJI_REGEX, findEmoji } from './../utils/emojis.utils.js'
+import {
+	EMOJI_REGEX,
+	findEmoji,
+	getEmojiName,
+} from './../utils/emojis.utils.js'
 
 export const dualEmojisAutomation = (message, state) => {
-	const { content, channel } = message
+	const { content, channel, author } = message
 	const { lastMessage } = state
 	if (
 		content.match(EMOJI_REGEX) &&
-		content == lastMessage.content &&
+		lastMessage?.content != undefined &&
+		getEmojiName(content) == getEmojiName(lastMessage.content) &&
 		author.id != lastMessage.author.id
 	) {
-		const emojiName = content.split(':')[1]
+		const emojiName = getEmojiName(content)
 		let answer
+		let emoji
 		switch (emojiName.toLowerCase()) {
 			case 'sebastian':
-				const emoji = findEmoji('sebastian', message)
+				emoji = findEmoji('sebastian', message)
 				answer = `${emoji} **Colo'shan synchronisée** ${emoji}`
+				break
+			case 'duh':
+				emoji = findEmoji('duh', message)
+				answer = `${emoji} **Colo'shan demeurée** ${emoji}`
 				break
 			default:
 				answer = content
