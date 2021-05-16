@@ -5,11 +5,12 @@ import {
 } from './../utils/emojis.utils.js'
 
 export const dualEmojisAutomation = (message, state) => {
-	const { content, channel, author } = message
 	const { lastMessage } = state
+	const { content, channel, author } = message
+
 	if (
+		lastMessage.content != undefined &&
 		content.match(EMOJI_REGEX) &&
-		lastMessage?.content != undefined &&
 		getEmojiName(content) == getEmojiName(lastMessage.content) &&
 		author.id != lastMessage.author.id
 	) {
