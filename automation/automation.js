@@ -1,10 +1,7 @@
-const dualEmojis = require('./dual_emojis')
-const perceval = require('./perceval')
+import { dualEmojisAutomation } from './dual_emojis.js'
+import { percevalAutomation } from './perceval.js'
 
-const automationFunctions = [dualEmojis, perceval]
+const automationFunctions = [dualEmojisAutomation, percevalAutomation]
 
-module.exports = {
-	execute(message, state) {
-		automationFunctions.forEach((aut) => aut.execute(message, state))
-	},
-}
+export const automations = (message, state) =>
+	automationFunctions.forEach((aut) => aut(message, state))

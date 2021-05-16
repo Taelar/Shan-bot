@@ -1,16 +1,14 @@
-const resources = require('../resources/perceval.json')
-const emojisUtils = require('../utils/emojis.utils')
+import { PERCEVAL_QUOTES } from '../resources/perceval.js'
+import { findEmoji } from '../utils/emojis.utils.js'
+
 const MAX_RAND = 200
 
-module.exports = {
-	execute(message, state) {
-		const rand = Math.floor(Math.random() * MAX_RAND + 1) // [1:200]
-		console.log(`Perceval rand: ${rand}`)
-		if (rand == 1) {
-			const index = Math.floor(Math.random() * resources.items.length)
-			const quote = resources.items[index]
-			const emote = emojisUtils.find('perceval', message)
-			message.channel.send(`${emote} ${quote}`)
-		}
-	},
+export const percevalAutomation = (message, state) => {
+	const rand = Math.floor(Math.random() * MAX_RAND + 1) // [1:200]
+	if (rand == 1) {
+		const index = Math.floor(Math.random() * PERCEVAL_QUOTES.length)
+		const quote = PERCEVAL_QUOTES[index]
+		const emote = findEmoji('perceval', message)
+		message.channel.send(`${emote} ${quote}`)
+	}
 }

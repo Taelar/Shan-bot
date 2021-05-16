@@ -1,4 +1,4 @@
-module.exports = {
+export const avatar = {
 	name: 'avatar',
 	description: "Récupère l'avatar des personnes taguées ou de ton avatar",
 	aliases: ['icon', 'pfp'],

@@ -1,4 +1,4 @@
-module.exports = {
+export const userInfo = {
 	name: 'user-info',
 	description: 'Send user info',
 	execute(message, args) {

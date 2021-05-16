@@ -1,28 +1,27 @@
-const fs = require('fs')
-const { Client, Collection } = require('discord.js')
-const { prefix, token, messageId, availableRoles } = require('./config.json')
-const onMessage = require('./events/onMessage')
-const commands = require('./commands/commands')
+import fs from 'fs'
+import { Client, Collection } from 'discord.js'
+import { onMessage } from './events/onMessage.js'
+import { activatedCommands } from './commands/commands.js'
+
+// Init
+
+const { prefix, token, messageId, availableRoles } = JSON.parse(
+	fs.readFileSync('./config.json'),
+)
 
 const client = new Client({
 	partials: ['USER', 'MESSAGE', 'CHANNEL', 'REACTION', 'GUILD_MEMBER'],
 })
 client.commands = new Collection()
 
-const commandFiles = fs
-	.readdirSync('./commands')
-	.filter(
-		(file) =>
-			file.endsWith('.js') && commands.activated.includes(file.split('.')[0]),
-	)
+activatedCommands.forEach((com) => client.commands.set(com.name, com))
 
-for (const file of commandFiles) {
-	const command = require(`./commands/${file}`)
-	client.commands.set(command.name, command)
+const state = {
+	cooldowns: new Collection(),
+	lastMessage: {},
 }
 
-const state = require('./initialState.json')
-state.cooldowns = new Collection()
+// Events
 
 client.once('ready', () => {
 	client.user.setActivity(`vos conversations débiles (${prefix}help)`, {
@@ -32,8 +31,7 @@ client.once('ready', () => {
 })
 
 client.on('message', (message) => {
-	onMessage.execute(message, prefix, client, state)
-	state.lastMessage = message
+	onMessage(message, prefix, client, state)
 	console.log(message.content)
 })
 

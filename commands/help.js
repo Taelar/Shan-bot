@@ -1,6 +1,8 @@
-const { prefix } = require('../config.json')
+import fs from 'fs'
 
-module.exports = {
+const { prefix } = JSON.parse(fs.readFileSync('./config.json'))
+
+export const help = {
 	name: 'help',
 	description:
 		"Liste toutes les commandes disponibles ou donne plus d'info sur une commande",

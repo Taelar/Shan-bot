@@ -1,4 +1,4 @@
-module.exports = {
+export const server = {
 	name: 'server',
 	description: 'Sent server informations',
 	execute(message, args) {

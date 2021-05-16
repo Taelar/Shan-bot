@@ -1,4 +1,4 @@
-module.exports = {
+export const prune = {
 	name: 'prune',
 	description: 'Efface des messages',
 	permission: true,

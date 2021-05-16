@@ -1,5 +1,5 @@
-// Allow to enable or disabled commands
+import { help } from './help.js'
+import { prune } from './prune.js'
 
-module.exports = {
-	activated: ['help', 'prune'],
-}
+// Allow to enable or disable commands
+export const activatedCommands = [help, prune]

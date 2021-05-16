@@ -35,7 +35,7 @@ List of commands:
 - !userInfo : display user info
 - !avatar : display the link of yout avatar
 - !avatar <user> : display the link of the user
-- !my-permission : display all of the permissions you have on the server
+- !myPermission : display all of the permissions you have on the server
 
 ## How to
 

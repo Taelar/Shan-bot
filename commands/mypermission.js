@@ -1,4 +1,4 @@
-module.exports = {
+export const myPermission = {
 	name: 'my-permission',
 	description: 'Affiche toutes les permissions que tu as',
 	permission: true,

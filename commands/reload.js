@@ -1,4 +1,4 @@
-module.exports = {
+export const reload = {
 	name: 'reload',
 	description: 'Relance une commande',
 	args: true,

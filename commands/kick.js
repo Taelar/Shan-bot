@@ -1,4 +1,4 @@
-module.exports = {
+export const kick = {
 	name: 'kick',
 	description: 'Tag un membre et kick le (enfin presque).',
 	usage: '<user>',
