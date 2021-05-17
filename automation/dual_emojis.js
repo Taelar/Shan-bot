@@ -3,6 +3,7 @@ import {
 	findEmoji,
 	getEmojiName,
 } from './../utils/emojis.utils.js'
+import { DUAL_EMOJIS_QUOTES } from '../resources/dual_emojis.js'
 
 export const dualEmojisAutomation = (message, state) => {
 	const { lastMessage } = state
@@ -14,20 +15,17 @@ export const dualEmojisAutomation = (message, state) => {
 		getEmojiName(content) == getEmojiName(lastMessage.content) &&
 		author.id != lastMessage.author.id
 	) {
-		const emojiName = getEmojiName(content)
 		let answer
-		let emoji
-		switch (emojiName.toLowerCase()) {
-			case 'sebastian':
-				emoji = findEmoji('sebastian', message)
-				answer = `${emoji} **Colo'shan synchronisée** ${emoji}`
-				break
-			case 'duh':
-				emoji = findEmoji('duh', message)
-				answer = `${emoji} **Colo'shan demeurée** ${emoji}`
-				break
-			default:
-				answer = content
+		const emojiName = getEmojiName(content)
+		const emoji = findEmoji(emojiName, message)
+		const dedicatedQuotes = DUAL_EMOJIS_QUOTES[emojiName]
+
+		if (!!dedicatedQuotes) {
+			const rand = Math.floor(Math.random() * dedicatedQuotes.length)
+			const quote = dedicatedQuotes[rand]
+			answer = `${emoji} ${quote} ${emoji}`
+		} else {
+			answer = emoji
 		}
 
 		channel.send(answer)

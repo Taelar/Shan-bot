@@ -5,4 +5,7 @@ export const findEmoji = (name, message) =>
 		(emoji) => emoji.name.toLowerCase() == name.toLowerCase(),
 	)
 
-export const getEmojiName = (emoji) => emoji.split(':')[1].toLowerCase()
+export const getEmojiName = (emoji) => {
+	const splited = emoji.split(':')
+	return splited.length > 2 ? splited[1].toLowerCase() : ''
+}
