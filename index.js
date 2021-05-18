@@ -37,7 +37,7 @@ client.on('message', (message) => {
 
 client.on('messageReactionAdd', async (reaction, user) => {
 	console.log('messageReactionAdd')
-	console.log(reaction, user)
+	// console.log(reaction, user)
 	if (!user) return
 	if (user.bot) return
 	if (!reaction.message.channel.guild) return
