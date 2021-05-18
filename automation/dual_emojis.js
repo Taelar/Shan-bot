@@ -20,12 +20,12 @@ export const dualEmojisAutomation = (message, state) => {
 		const emoji = findEmoji(emojiName, message)
 		const dedicatedQuotes = DUAL_EMOJIS_QUOTES[emojiName]
 
-		if (!!dedicatedQuotes) {
+		if (dedicatedQuotes != undefined && dedicatedQuotes.length > 0) {
 			const rand = Math.floor(Math.random() * dedicatedQuotes.length)
 			const quote = dedicatedQuotes[rand]
 			answer = `${emoji} ${quote} ${emoji}`
 		} else {
-			answer = emoji
+			answer = `${emoji}`
 		}
 
 		channel.send(answer)
