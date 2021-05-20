@@ -13,8 +13,8 @@ export const pingpongEmojis = (message, state) => {
 	if (
 		lastMessage.content != undefined &&
 		content.match(EMOJI_REGEX) &&
-		lastMessage.content.match(EMOJI_REGEX) /*  &&
-		author.id != lastMessage.author.id */
+		lastMessage.content.match(EMOJI_REGEX) &&
+		author.id != lastMessage.author.id
 	) {
 		let answer
 
