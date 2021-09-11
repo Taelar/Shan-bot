@@ -16,15 +16,13 @@ export const pingpongEmojis = (message, state) => {
 		lastMessage.content.match(EMOJI_REGEX) &&
 		author.id != lastMessage.author.id
 	) {
-		let answer
-
 		const emoji1 = getEmojiName(lastMessage.content)
 		const emoji2 = getEmojiName(content)
 
 		let quotes = PINGPONG_EMOJIS_QUOTES[`${emoji1}/${emoji2}`]
 		if (quotes != undefined && quotes.length > 0) {
 			const rand = randInt(0, quotes.length)
-			answer = `${findEmoji(emoji1, message)} ${quotes[rand]} ${findEmoji(
+			const answer = `${findEmoji(emoji1, message)} ${quotes[rand]} ${findEmoji(
 				emoji2,
 				message,
 			)}`
@@ -35,7 +33,7 @@ export const pingpongEmojis = (message, state) => {
 		quotes = PINGPONG_EMOJIS_QUOTES[`${emoji2}/${emoji1}`]
 		if (quotes != undefined && quotes.length > 0) {
 			const rand = randInt(0, quotes.length)
-			answer = `${findEmoji(emoji2, message)} ${quotes[rand]} ${findEmoji(
+			const answer = `${findEmoji(emoji2, message)} ${quotes[rand]} ${findEmoji(
 				emoji1,
 				message,
 			)}`
