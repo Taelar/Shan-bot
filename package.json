@@ -14,7 +14,8 @@
 		"eslint": "^7.1.0"
 	},
 	"scripts": {
-		"start": "node index.js"
+		"start": "node index.js",
+		"start:dev": "node --experimental-modules index.js"
 	},
 	"devDependencies": {
 		"@types/node": "14.14.45",

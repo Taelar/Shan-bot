@@ -19,6 +19,7 @@ activatedCommands.forEach((com) => client.commands.set(com.name, com))
 const state = {
 	cooldowns: new Collection(),
 	lastMessage: {},
+	user: null,
 }
 
 // Events
@@ -27,6 +28,7 @@ client.once('ready', () => {
 	client.user.setActivity(`vos conversations débiles (${prefix}help)`, {
 		type: 'WATCHING',
 	})
+	state.user = client.user
 	console.log('Server Started & ready !')
 })
 
