@@ -12,4 +12,8 @@ export const DUAL_EMOJIS_QUOTES = {
 		'w',
 		"L'Instistut National de Recherche Dédiée à l'Étude de la Colo'shan (INRDEC) détecte une montée drastique de la baisabilité du Shan'do",
 	],
+	proudBob: ["C'est mieux."],
+	NANI: ['NANI ?!', 'NANI KELUYO OTTO-SAN KONICHIWA SUSHII DRAGON BALL ?!'],
+	angryRene: ["C'est hoNteux"],
+	Perceval: ["C'est pas faux"],
 }
