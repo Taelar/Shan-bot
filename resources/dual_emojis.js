@@ -16,4 +16,6 @@ export const DUAL_EMOJIS_QUOTES = {
 	NANI: ['NANI ?!', 'NANI KELUYO OTTO-SAN KONICHIWA SUSHII DRAGON BALL ?!'],
 	angryRene: ["C'est hoNteux"],
 	Perceval: ["C'est pas faux"],
+	tuttut: ['TUT TUT'],
+	CuteAnduin: ["VARIAN C L PER D'ANDUIN"],
 }
