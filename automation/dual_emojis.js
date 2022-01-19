@@ -15,17 +15,17 @@ export const dualEmojisAutomation = (message, state) => {
 		getEmojiName(content) == getEmojiName(lastMessage.content) &&
 		author.id != lastMessage.author.id
 	) {
-		let answer
+		let answer = `${emoji}`
 		const emojiName = getEmojiName(content)
 		const emoji = findEmoji(emojiName, message)
 		const dedicatedQuotes = DUAL_EMOJIS_QUOTES[emojiName]
 
 		if (dedicatedQuotes != undefined && dedicatedQuotes.length > 0) {
-			const rand = Math.floor(Math.random() * dedicatedQuotes.length)
-			const quote = dedicatedQuotes[rand]
-			answer = `${emoji} ${quote} ${emoji}`
-		} else {
-			answer = `${emoji}`
+			const rand = Math.floor(Math.random() * dedicatedQuotes.length + 1)
+			if (rand !== dedicatedQuotes.length) {
+				const quote = dedicatedQuotes[rand]
+				answer = `${emoji} ${quote} ${emoji}`
+			}
 		}
 
 		channel.send(answer)
