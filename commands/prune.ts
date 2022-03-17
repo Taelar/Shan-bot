@@ -19,7 +19,13 @@ export const prune: Command = {
 		if (interaction.channel?.type === 'GUILD_TEXT') {
 			interaction.channel
 				.bulkDelete(amount, true)
-				.then((messages) => console.log(`${messages.size} messages deleted`))
+				.then((messages) => {
+					console.info(`${messages.size} messages deleted`)
+					interaction.reply({
+						content: `${messages.size} messages supprimés`,
+						ephemeral: true,
+					})
+				})
 				.catch((err) => {
 					console.error(err)
 					interaction.channel?.send(

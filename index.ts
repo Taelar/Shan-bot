@@ -36,7 +36,7 @@ client.on('messageCreate', (message) => {
 	console.log(message.content)
 })
 
-client.on('interactionCreate', async (interaction) => {
+client.on('interactionCreate', (interaction) => {
 	if (!interaction.isCommand()) return
 	onCommand(interaction)
 })
