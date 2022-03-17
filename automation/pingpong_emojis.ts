@@ -2,6 +2,7 @@ import { PINGPONG_EMOJIS_QUOTES } from '../resources/pingpong_emojis'
 import { randInt } from '../utils/random.utils'
 import { EMOJI_REGEX, findEmoji, getEmojiName } from '../utils/emojis.utils'
 import { Automation } from '../model'
+import { quote } from '@discordjs/builders'
 
 export const pingpongEmojis: Automation = (message, clientUser, state) => {
 	const { lastMessage } = state
@@ -10,17 +11,17 @@ export const pingpongEmojis: Automation = (message, clientUser, state) => {
 	if (
 		lastMessage?.content != undefined &&
 		content.match(EMOJI_REGEX) &&
-		lastMessage.content.match(EMOJI_REGEX) &&
-		author.id != lastMessage.author.id
+		lastMessage.content.match(EMOJI_REGEX) /* &&
+		author.id != lastMessage.author.id */
 	) {
 		const emoji1 = getEmojiName(lastMessage.content)
 		const emoji2 = getEmojiName(content)
 
 		if (emoji1 && emoji2) {
 			const pingpongs = [`${emoji1}/${emoji2}`, `${emoji2}/${emoji1}`]
-			let quotes = Object.values(PINGPONG_EMOJIS_QUOTES).find(([key]) =>
-				pingpongs.includes(key),
-			)
+			let quotes = Object.entries(PINGPONG_EMOJIS_QUOTES).find(([key]) => {
+				return pingpongs.includes(key)
+			})?.[1]
 
 			if (quotes != undefined && quotes.length > 0) {
 				const rand = randInt(0, quotes.length)
