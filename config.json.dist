@@ -1,6 +1,5 @@
 {
   "token": "",
-  "messageId": "",
-  "prefix": "!",
-  "availableRoles": [""]
+	"guildId": "",
+	"clientId": ""
 }
