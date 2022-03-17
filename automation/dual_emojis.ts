@@ -2,6 +2,7 @@ import { EMOJI_REGEX, findEmoji, getEmojiName } from '../utils/emojis.utils'
 import { DUAL_EMOJIS_QUOTES } from '../resources/dual_emojis'
 import { Automation } from '../model/Automation'
 import { isDefined } from '../utils/types.utils'
+import { randInt } from '../utils/random.utils'
 
 export const dualEmojisAutomation: Automation = (
 	message,
@@ -31,7 +32,7 @@ export const dualEmojisAutomation: Automation = (
 			if (emoji) {
 				let answer = `${emoji}`
 				if (dedicatedQuotes != undefined && dedicatedQuotes.length > 0) {
-					const rand = Math.floor(Math.random() * dedicatedQuotes.length + 1)
+					const rand = randInt(0, dedicatedQuotes.length + 1)
 					if (rand !== dedicatedQuotes.length) {
 						const quote = dedicatedQuotes[rand]
 						answer = `${emoji} ${quote} ${emoji}`
