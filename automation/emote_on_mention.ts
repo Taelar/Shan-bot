@@ -11,6 +11,8 @@ export const emoteOnMention: Automation = (message, clientUser, state) => {
 		const emoji = findEmoji('duh', message)
 		if (emoji) {
 			message.react(emoji)
+		} else {
+			console.log('Unable to find duh emote')
 		}
 	}
 }
