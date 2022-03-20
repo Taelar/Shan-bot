@@ -1,10 +1,11 @@
-import { PERCEVAL_QUOTES } from '../resources/perceval.js'
-import { findEmoji } from '../utils/emojis.utils.js'
-import { randInt } from '../utils/random.utils.js'
+import { Automation } from '../model'
+import { PERCEVAL_QUOTES } from '../resources/perceval'
+import { findEmoji } from '../utils/emojis.utils'
+import { randInt } from '../utils/random.utils'
 
 const MAX_RAND = 75
 
-export const percevalAutomation = (message, state) => {
+export const percevalAutomation: Automation = (message, clientUser, state) => {
 	const rand = randInt(1, MAX_RAND)
 	if (rand == 1) {
 		const index = Math.floor(Math.random() * PERCEVAL_QUOTES.length)
