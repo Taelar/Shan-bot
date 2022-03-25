@@ -18,7 +18,8 @@
 	},
 	"scripts": {
 		"start": "ts-node --project tsconfig.json index.ts",
-		"commands": "ts-node deploy-commands.ts"
+		"commands:guild": "ts-node deploy-commands.ts -- global=false",
+		"commands:global": "ts-node deploy-commands.ts -- global=true"
 	},
 	"devDependencies": {
 		"@types/node": "^16.11.26",
