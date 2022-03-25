@@ -3,7 +3,7 @@ import { PERCEVAL_QUOTES } from '../resources/perceval'
 import { findEmoji } from '../utils/emojis.utils'
 import { randInt } from '../utils/random.utils'
 
-const MAX_RAND = 75
+const MAX_RAND = 125
 
 export const percevalAutomation: Automation = (message, clientUser, state) => {
 	const rand = randInt(1, MAX_RAND)
@@ -11,6 +11,8 @@ export const percevalAutomation: Automation = (message, clientUser, state) => {
 		const index = Math.floor(Math.random() * PERCEVAL_QUOTES.length)
 		const quote = PERCEVAL_QUOTES[index]
 		const emote = findEmoji('perceval', message)
-		message.channel.send(`${emote} ${quote}`)
+		if (emote) {
+			message.channel.send(`${emote} ${quote}`)
+		}
 	}
 }
