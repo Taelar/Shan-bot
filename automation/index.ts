@@ -1,7 +1,7 @@
-import { dualEmojisAutomation } from './dual_emojis'
-import { emoteOnMention } from './emote_on_mention'
+import { dualEmojisAutomation } from './dualEmojis'
+import { emoteOnMention } from './emoteOnMention'
 import { percevalAutomation } from './perceval'
-import { pingpongEmojis } from './pingpong_emojis'
+import { pingpongEmojis } from './pingpongEmojis'
 
 export {
 	dualEmojisAutomation,
