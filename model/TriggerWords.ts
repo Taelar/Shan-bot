@@ -8,3 +8,5 @@ export interface TriggerWordsQuote {
 	quote: string
 	emoji: EmojiKey
 }
+
+export const TRIGGER_WORDS_COOLDOWN = 5 * 60 * 1000

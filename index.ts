@@ -18,6 +18,9 @@ const client = new Client({
 
 const state: BotState = {
 	lastMessage: null,
+	coolDowns: {
+		triggerWords: null,
+	},
 }
 
 // Events
