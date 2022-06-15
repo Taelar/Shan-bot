@@ -1,8 +1,8 @@
-import { EMOJI_REGEX, findEmoji, getEmojiName } from '../utils/emojis.utils'
-import { DUAL_EMOJIS_QUOTES } from '../resources/dualEmojis'
-import { Automation } from '../model/Automation'
-import { isDefined } from '../utils/types.utils'
-import { randInt } from '../utils/random.utils'
+import { EMOJI_REGEX, findEmoji, getEmojiName } from '../../utils/emojis.utils'
+import { Automation } from '../../model/Automation'
+import { isDefined } from '../../utils/types.utils'
+import { randInt } from '../../utils/random.utils'
+import { DUAL_EMOJIS_QUOTES } from './dualEmojis.resources'
 
 export const dualEmojisAutomation: Automation = (
 	message,

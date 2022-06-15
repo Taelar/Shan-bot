@@ -1,10 +1,11 @@
-import { Automation, TriggerWordsKey, TRIGGER_WORDS_COOLDOWN } from '../model'
+import { TriggerWordsKey, TRIGGER_WORDS_COOLDOWN } from './triggerWords.model'
 import {
 	TRIGGER_WORDS_MAPPING,
 	TRIGGER_WORDS_QUOTES,
-} from '../resources/triggerWords'
-import { findEmoji } from '../utils/emojis.utils'
-import { randInt } from '../utils/random.utils'
+} from './triggerWords.resources'
+import { findEmoji } from '../../utils/emojis.utils'
+import { randInt } from '../../utils/random.utils'
+import { Automation } from '../../model'
 
 export const triggerWords: Automation = (message, clientUser, state) => {
 	const cooldown = state.coolDowns.triggerWords

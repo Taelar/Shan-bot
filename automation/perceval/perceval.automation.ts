@@ -1,7 +1,7 @@
-import { Automation } from '../model'
-import { PERCEVAL_QUOTES } from '../resources/perceval'
-import { findEmoji } from '../utils/emojis.utils'
-import { randInt } from '../utils/random.utils'
+import { Automation } from '../../model'
+import { PERCEVAL_QUOTES } from './perceval.resources'
+import { findEmoji } from '../../utils/emojis.utils'
+import { randInt } from '../../utils/random.utils'
 
 const MAX_RAND = 125
 

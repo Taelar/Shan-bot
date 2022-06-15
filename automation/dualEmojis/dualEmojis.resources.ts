@@ -1,4 +1,4 @@
-import { EmojiKey } from '../model/Emojis'
+import { EmojiKey } from '../../model/Emojis'
 
 export const DUAL_EMOJIS_QUOTES: { [key in EmojiKey]: Array<string> } = {
 	SEBASTIAN: [

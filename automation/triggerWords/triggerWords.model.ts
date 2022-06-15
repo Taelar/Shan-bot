@@ -1,4 +1,4 @@
-import { EmojiKey } from './Emojis'
+import { EmojiKey } from '../../model/Emojis'
 
 export const TRIGGER_WORDS = ['swede', 'anduin'] as const
 

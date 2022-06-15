@@ -1,6 +1,6 @@
-import { Automation, EMOJI_KEYS } from '../model'
-import { findEmoji } from '../utils/emojis.utils'
-import { randInt } from '../utils/random.utils'
+import { Automation, EMOJI_KEYS } from '../../model'
+import { findEmoji } from '../../utils/emojis.utils'
+import { randInt } from '../../utils/random.utils'
 
 const MAX_RAND = 300
 

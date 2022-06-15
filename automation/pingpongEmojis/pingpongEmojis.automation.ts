@@ -1,7 +1,7 @@
-import { PINGPONG_EMOJIS_QUOTES } from '../resources/pingpongEmojis'
-import { randInt } from '../utils/random.utils'
-import { EMOJI_REGEX, findEmoji, getEmojiName } from '../utils/emojis.utils'
-import { Automation } from '../model'
+import { PINGPONG_EMOJIS_QUOTES } from './pingpongEmojis.resources'
+import { randInt } from '../../utils/random.utils'
+import { EMOJI_REGEX, findEmoji, getEmojiName } from '../../utils/emojis.utils'
+import { Automation } from '../../model'
 
 export const pingpongEmojis: Automation = (message, clientUser, state) => {
 	const { lastMessage } = state

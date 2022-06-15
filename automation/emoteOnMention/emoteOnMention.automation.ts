@@ -1,5 +1,5 @@
-import { Automation } from '../model/Automation'
-import { findEmoji } from '../utils/emojis.utils'
+import { Automation } from '../../model/Automation'
+import { findEmoji } from '../../utils/emojis.utils'
 
 const BOTNAME = "Shan'bot"
 

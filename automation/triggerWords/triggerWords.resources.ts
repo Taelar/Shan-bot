@@ -1,4 +1,4 @@
-import { TriggerWordsKey, TriggerWordsQuote } from '../model/'
+import { TriggerWordsKey, TriggerWordsQuote } from './triggerWords.model'
 
 export const TRIGGER_WORDS_MAPPING: { [key in TriggerWordsKey]: string[] } = {
 	swede: ['suedois', 'suede', 'suedie', 'swedish', 'swede', 'bjark'],
