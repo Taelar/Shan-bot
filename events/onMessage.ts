@@ -4,6 +4,7 @@ import {
 	pingpongEmojis,
 	emoteOnMention,
 	randomReaction,
+	triggerWords,
 } from '../automation'
 import { Automation } from '../model'
 
@@ -13,6 +14,7 @@ const automationFunctions: Automation[] = [
 	pingpongEmojis,
 	emoteOnMention,
 	randomReaction,
+	triggerWords,
 ]
 
 export const onMessage: Automation = (message, clientUser, state) => {
