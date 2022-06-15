@@ -1,51 +1,54 @@
-export type EmojiKey =
-	| 'GABYhein'
-	| 'Duh'
-	| 'GABYseum'
-	| 'THOMASstyle'
-	| 'Deeplysad'
-	| 'boude'
-	| 'TomLaugh'
-	| 'ElRisitas'
-	| 'DeterAnduin'
-	| 'CuteAnduin'
-	| 'GeraltMh'
-	| 'GeraltLunettes'
-	| 'SEBASTIAN'
-	| 'AngryRene'
-	| 'Sexbob'
-	| 'sadbob'
-	| 'Proudbob'
-	| 'AH'
-	| 'USBOY'
-	| 'wafreverse'
-	| 'PARDON'
-	| 'mh'
-	| 'what'
-	| 'Prune'
-	| 'CreverDansMonCoeur'
-	| 'Gneuhgneuhgneuh'
-	| 'cNon'
-	| 'Perceval'
-	| 'TAGUEULE'
-	| 'hein'
-	| 'waf'
-	| 'tuttut'
-	| 'fabuleux'
-	| 'robespieeeeeeerre'
-	| 'ui'
-	| 'ANCULAR'
-	| 'bezmoi'
-	| 'THEFUCK'
-	| 'IMPACT'
-	| 'iyaya'
-	| 'gabi'
-	| 'prophecy'
-	| 'sacbanane'
-	| 'poticha'
-	| 'ela'
-	| 'NANI'
-	| 'racoon'
-	| 'diggy'
-	| 'NANI'
-	| 'axa'
+export const EMOJI_KEYS = [
+	'GABYhein',
+	'Duh',
+	'GABYseum',
+	'THOMASstyle',
+	'Deeplysad',
+	'boude',
+	'TomLaugh',
+	'ElRisitas',
+	'DeterAnduin',
+	'CuteAnduin',
+	'GeraltMh',
+	'GeraltLunettes',
+	'SEBASTIAN',
+	'AngryRene',
+	'Sexbob',
+	'sadbob',
+	'Proudbob',
+	'AH',
+	'USBOY',
+	'wafreverse',
+	'PARDON',
+	'mh',
+	'what',
+	'Prune',
+	'CreverDansMonCoeur',
+	'Gneuhgneuhgneuh',
+	'cNon',
+	'Perceval',
+	'TAGUEULE',
+	'hein',
+	'waf',
+	'tuttut',
+	'fabuleux',
+	'robespieeeeeeerre',
+	'ui',
+	'ANCULAR',
+	'bezmoi',
+	'THEFUCK',
+	'IMPACT',
+	'iyaya',
+	'gabi',
+	'prophecy',
+	'sacbanane',
+	'poticha',
+	'ela',
+	'NANI',
+	'racoon',
+	'diggy',
+	'NANI',
+	'axa',
+] as const
+
+export type EmojiKey = typeof EMOJI_KEYS[number]

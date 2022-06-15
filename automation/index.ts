@@ -1,11 +1,5 @@
-import { dualEmojisAutomation } from './dualEmojis'
-import { emoteOnMention } from './emoteOnMention'
-import { percevalAutomation } from './perceval'
-import { pingpongEmojis } from './pingpongEmojis'
-
-export {
-	dualEmojisAutomation,
-	percevalAutomation,
-	pingpongEmojis,
-	emoteOnMention,
-}
+export { dualEmojisAutomation } from './dualEmojis'
+export { emoteOnMention } from './emoteOnMention'
+export { percevalAutomation } from './perceval'
+export { pingpongEmojis } from './pingpongEmojis'
+export { randomReaction } from './randomReaction'

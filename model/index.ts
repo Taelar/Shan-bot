@@ -1,5 +1,4 @@
-import { Automation } from './Automation'
-import { BotState } from './BotState'
-import { Command } from './Command'
-
-export { Automation, Command, BotState }
+export * from './Automation'
+export * from './BotState'
+export * from './Command'
+export * from './Emojis'

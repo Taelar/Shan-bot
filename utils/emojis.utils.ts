@@ -1,5 +1,5 @@
 import { Message } from 'discord.js'
-import { EmojiKey } from '../model/Emojis'
+import { EmojiKey } from '../model'
 
 export const EMOJI_REGEX = /<:\w+:\d+>/
 

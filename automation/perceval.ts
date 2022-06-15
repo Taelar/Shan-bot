@@ -7,7 +7,7 @@ const MAX_RAND = 125
 
 export const percevalAutomation: Automation = (message, clientUser, state) => {
 	const rand = randInt(1, MAX_RAND)
-	if (rand == 1) {
+	if (rand === 0) {
 		const index = Math.floor(Math.random() * PERCEVAL_QUOTES.length)
 		const quote = PERCEVAL_QUOTES[index]
 		const emote = findEmoji('perceval', message)
