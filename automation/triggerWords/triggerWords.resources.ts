@@ -1,7 +1,7 @@
 import { TriggerWordsKey, TriggerWordsQuote } from './triggerWords.model'
 
 export const TRIGGER_WORDS_MAPPING: { [key in TriggerWordsKey]: string[] } = {
-	swede: ['suedois', 'suede', 'suedie', 'swedish', 'swede', 'bjark'],
+	swede: ['suedois', 'suede', 'suedie', 'swedish', 'swede', 'bjark', 'parking'],
 	anduin: ['anduin', 'varian', 'wrynn'],
 }
 

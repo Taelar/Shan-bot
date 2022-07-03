@@ -5,7 +5,7 @@ export const EMOJI_KEYS = [
 	'THOMASstyle',
 	'Deeplysad',
 	'boude',
-	'TomLaugh',
+	'Tomlaugh',
 	'ElRisitas',
 	'DeterAnduin',
 	'CuteAnduin',
@@ -49,6 +49,8 @@ export const EMOJI_KEYS = [
 	'diggy',
 	'NANI',
 	'axa',
+	'rocket',
+	'deadInside',
 ] as const
 
 export type EmojiKey = typeof EMOJI_KEYS[number]
