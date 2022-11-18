@@ -30,9 +30,15 @@ export const dualEmojisAutomation: Automation = (
 			const dedicatedQuotes = DUAL_EMOJIS_QUOTES[emojiName]
 
 			if (emoji) {
+				// Par défaut, on répète juste l'emoji
 				let answer = `${emoji}`
+				// Si des quotes sont disponibles
 				if (dedicatedQuotes != undefined && dedicatedQuotes.length > 0) {
-					const rand = randInt(0, dedicatedQuotes.length + 1)
+					// On rand quotes.length, en ajoutant 1 si on veut inclure la réponse par défaut
+					const includeDefaultAnswer = dedicatedQuotes.length > 1 ? 0 : 1
+					const rand = randInt(0, dedicatedQuotes.length + includeDefaultAnswer)
+					// Si le rand le permet, on prend une quote random
+					// Sinon on garde la réponse par défaut
 					if (rand !== dedicatedQuotes.length) {
 						const quote = dedicatedQuotes[rand]
 						answer = `${emoji} ${quote} ${emoji}`
