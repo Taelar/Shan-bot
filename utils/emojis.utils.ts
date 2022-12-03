@@ -1,7 +1,7 @@
 import { Message } from 'discord.js'
 import { EmojiKey } from '../model'
 
-export const EMOJI_REGEX = /<:\w+:\d+>/
+export const EMOJI_REGEX = /<(a?):(\w+):\d+>/
 
 export const findEmoji = (name: string, message: Message) => {
 	const emoji = message.guild?.emojis.cache.find(
@@ -14,7 +14,9 @@ export const findEmoji = (name: string, message: Message) => {
 	}
 }
 
-export const getEmojiName = (emoji: string) => {
-	const splited = emoji.split(':')
-	return splited.length > 2 ? (splited[1] as EmojiKey) : undefined
+export const getEmojiName = (emoji: string): EmojiKey | undefined => {
+	const matched = emoji.match(EMOJI_REGEX)
+	const nameMatch = matched?.at(2)
+
+	return nameMatch ? (nameMatch as EmojiKey) : undefined
 }

@@ -44,6 +44,8 @@ export const dualEmojisAutomation: Automation = (
 				}
 
 				channel.send(answer)
+				// Reset du last message
+				state.lastMessage = null
 			}
 		}
 	}

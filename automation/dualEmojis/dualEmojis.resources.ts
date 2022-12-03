@@ -1,6 +1,8 @@
 import { EmojiKey } from '../../model/Emojis'
 
-export const DUAL_EMOJIS_QUOTES: { [key in EmojiKey]: Array<string> } = {
+export const DUAL_EMOJIS_QUOTES: {
+	[key in EmojiKey]: Array<string>
+} = {
 	SEBASTIAN: [
 		'Muchos nachos',
 		"La Colo'shan esta synchronisada ma claro la mañana",
@@ -77,8 +79,9 @@ export const DUAL_EMOJIS_QUOTES: { [key in EmojiKey]: Array<string> } = {
 	axa: ['Éwé', 'Bawi'],
 	rocket: ['Rocketto', 'Meooooooooow', 'Miaou bordel de merde'],
 	deadInside: [
-		'*Listening to* Suzuya - Dis-moi de que tu me détestes',
+		'*Listening to* Suzuya - Dis-moi que tu me détestes',
 		'*Listening to* Nekfeu - Avant tu riais',
+		'*Listening to* 12 Stones - Hello Suicide',
 	],
-	copbear: ['**POLICE DES POMPONS**'],
+	copbear: ['**POLICE DES POMPONS**', "C'est la police tavu"],
 }
