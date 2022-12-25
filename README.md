@@ -8,20 +8,13 @@ To install follow the steps :
 
 Run `npm ci`
 
-Run `cp config.json.dist config.json`
+Run `cp .env .env.local`
 
-Open config.json and fill it
-
-```javascript
-{
-  "token": "", // token of your bot
-  "messageId": "", // the message ID where the reactions are
-  "prefix": "", // The prefix for commandes
-  "availableRoles": [""] // The names of emojis the users have to click to get a role with the same name. ex : ‘rose‘ will set to the user a role named rose (must be already created onto your server)
-}
-```
+Open .env.local and fill it
 
 and run `npm install`
+
+# TODO : update this readme, you doofus
 
 ## Commands
 

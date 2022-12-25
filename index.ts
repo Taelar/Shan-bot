@@ -1,6 +1,5 @@
 import { Client, Intents } from 'discord.js'
 import { onMessage } from './events/onMessage'
-import { token } from './config.json'
 import { onCommand } from './events/onCommand'
 import { BotState } from './model/BotState'
 
@@ -44,4 +43,6 @@ client.on('interactionCreate', (interaction) => {
 	onCommand(interaction)
 })
 
-client.login(token)
+console.log('token start: ' + process.env.TOKEN?.slice(0, 5))
+
+client.login(process.env.TOKEN)

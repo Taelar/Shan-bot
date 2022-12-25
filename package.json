@@ -19,7 +19,7 @@
 	"scripts": {
 		"start": "node dist/",
 		"build": "tsc --outDir dist",
-		"start:dev": "nodemon index.ts",
+		"start:dev": "env $(cat .env.local) nodemon index.ts",
 		"commands:guild": "ts-node deploy-commands.ts -- global=false",
 		"commands:global": "ts-node deploy-commands.ts -- global=true"
 	},
