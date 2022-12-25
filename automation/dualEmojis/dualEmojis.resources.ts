@@ -29,7 +29,7 @@ export const DUAL_EMOJIS_QUOTES: {
 	NANI: ['NANI ?!', 'NANI KELUYO OTTO-SAN KONICHIWA SUSHII DRAGON BALL ?!'],
 	AngryRene: ["C'est hoNteux", "Mais on s'en BAT LES COUILLES"],
 	Perceval: ["C'est pas faux", 'Je connais pas ce mot-là'],
-	tuttut: ['TUT TUT'],
+	tuttut: ['TUT TUT', 'Tut tut fils de pute'],
 	GABYhein: ["Mais j'vais te faire le fion"],
 	GABYseum: ['nik toi'],
 	THOMASstyle: ["I'm a bitch, I'm a boss"],
