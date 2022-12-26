@@ -7,4 +7,4 @@ RUN npm ci
 
 COPY . .
 
-CMD [ "node", "dist/" ]
+CMD [ "npm", "start" ]
