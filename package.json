@@ -24,7 +24,7 @@
 		"deploy": ". ./.env.local && . ./scripts/deploy.sh",
 		"prod:start": "env $(cat .env.local) node dist/",
 		"docker:build": "docker build . -t thomasesseul/shanbot",
-		"docker:start": "docker run --rm -d thomasesseul/shanbot"
+		"docker:start": "docker stop shanbot && docker run --rm -d thomasesseul/shanbot --name shanbot"
 	},
 	"devDependencies": {
 		"@types/node": "^16.11.26",
