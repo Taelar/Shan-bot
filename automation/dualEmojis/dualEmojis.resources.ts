@@ -84,4 +84,5 @@ export const DUAL_EMOJIS_QUOTES: {
 		'*Listening to* 12 Stones - Hello Suicide',
 	],
 	copbear: ['**POLICE DES POMPONS**', "C'est la police tavu"],
+	comfyRocket: ["Rocketto dodo", 'Just Rocketting']
 }
