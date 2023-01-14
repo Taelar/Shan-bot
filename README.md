@@ -2,7 +2,7 @@
 
 A duh bot that makes nothing usefull and is actually pretty dumb.
 
-Originally a fork of [arnaudhuc/Erina](https://github.com/arnaudhuc/Erina).
+Forked from [arnaudhuc/Erina](https://github.com/arnaudhuc/Erina).
 
 ## Installation
 
