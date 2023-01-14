@@ -75,7 +75,7 @@ export const DUAL_EMOJIS_QUOTES: {
 	poticha: ['Miaou ?!'],
 	ela: ['Qui a emmerdé ma femme ?'],
 	racoon: ['Raccoonax 2000 in da place'],
-	diggy: ["J'vais tous vous fumer.", "Oh c'est l'heure de péter le cul"],
+	diggy: ["J'vais tous vous fumer.", "Oh c'est l'heure de te péter le cul"],
 	axa: ['Éwé', 'Bawi'],
 	rocket: ['Rocketto', 'Meooooooooow', 'Miaou bordel de merde'],
 	deadInside: [
