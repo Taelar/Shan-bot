@@ -28,6 +28,7 @@ export const dualEmojisAutomation: Automation = (
 		) {
 			const emoji = findEmoji(emojiName, message)
 			const dedicatedQuotes = DUAL_EMOJIS_QUOTES[emojiName]
+			console.log('dual emojis', emoji, JSON.stringify(dedicatedQuotes))
 
 			if (emoji) {
 				// Par défaut, on répète juste l'emoji
