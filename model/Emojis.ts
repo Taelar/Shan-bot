@@ -52,7 +52,8 @@ export const EMOJI_KEYS = [
 	'rocket',
 	'deadInside',
 	'copbear',
-	'comfyRocket'
+	'comfyRocket',
+	'helicochien',
 ] as const
 
 export type EmojiKey = typeof EMOJI_KEYS[number]
