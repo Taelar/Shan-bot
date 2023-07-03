@@ -1,7 +1,7 @@
 import { SlashCommandBuilder } from '@discordjs/builders'
 import { REST } from '@discordjs/rest'
 import { Routes } from 'discord-api-types/v9'
-import { help, prune } from './commands'
+import { help, prune } from './src/commands'
 
 const { CLIENT_ID, GUILD_ID, TOKEN } = process.env
 
