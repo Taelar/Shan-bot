@@ -23,8 +23,8 @@
 		"commands:global": "ts-node deploy-commands.ts -- global=true",
 		"deploy": ". ./.env.local && . ./scripts/deploy.sh",
 		"prod:start": "env $(cat .env.local) node dist/",
-		"docker:build": "docker build . -t thomasesseul/shanbot",
-		"docker:start": "docker run --rm -d --name shanbot thomasesseul/shanbot"
+		"docker:build": "docker build . -t tolwe/shanbot",
+		"docker:start": "docker run --rm -d --name shanbot tolwe/shanbot"
 	},
 	"devDependencies": {
 		"@types/node": "^16.11.26",
