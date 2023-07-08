@@ -21,7 +21,6 @@
 		"build": "tsc --outDir dist",
 		"commands:guild": "ts-node deploy-commands.ts -- global=false",
 		"commands:global": "ts-node deploy-commands.ts -- global=true",
-		"deploy": ". ./.env.local && . ./scripts/deploy.sh",
 		"prod:start": "env $(cat .env.local) node dist/",
 		"docker:build": "docker build . -t tolwe/shanbot",
 		"docker:start": "docker run --rm -d --name shanbot tolwe/shanbot"

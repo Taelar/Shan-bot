@@ -4,17 +4,28 @@ I'm not sure how to describe it, but I know one thing for sure is that the word 
 
 Forked from [arnaudhuc/Erina](https://github.com/arnaudhuc/Erina).
 
-## Installation
+## Install
 
 To install follow the steps :
 
-Run `npm ci`
-
-Run `cp .env .env.local`
+```bash
+npm ci
+cp .env .env.local
+```
 
 Open .env.local and fill it
 
-and run `npm install`
+```bash
+npm install
+```
+
+## Deploy
+
+Requires [flyctl](https://fly.io/docs/hands-on/install-flyctl/)
+
+```bash
+`fly deploy`
+```
 
 ## Commands
 
