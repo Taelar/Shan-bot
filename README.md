@@ -9,14 +9,14 @@ Forked from [arnaudhuc/Erina](https://github.com/arnaudhuc/Erina).
 To install follow the steps :
 
 ```bash
-npm ci
-cp .env .env.local
+npm install
+cp .env.template .env
 ```
 
-Open .env.local and fill it
+Open .env and fill it
 
 ```bash
-npm install
+npm start
 ```
 
 ## Deploy

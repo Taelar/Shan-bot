@@ -38,5 +38,5 @@ jspm_packages/
 
 
 config.json
-.env.local
+.env
 dist
