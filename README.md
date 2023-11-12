@@ -8,12 +8,20 @@ Forked from [arnaudhuc/Erina](https://github.com/arnaudhuc/Erina).
 
 To install follow the steps :
 
-```bash
+```sh
 npm install
 cp .env.template .env
 ```
 
-Open .env and fill it
+Open `.env` and fill it
+
+Open a first terminal :
+
+```bash
+npm watch
+```
+
+And a second terminal :
 
 ```bash
 npm start
@@ -25,6 +33,14 @@ Requires [flyctl](https://fly.io/docs/hands-on/install-flyctl/)
 
 ```bash
 `fly deploy`
+```
+
+### Deploy commands
+
+```sh
+npm run commands:build
+npm run commands:guild
+npm run commands:global
 ```
 
 ## Commands
