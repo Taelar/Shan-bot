@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:20
 
 WORKDIR /usr/src/app
 
@@ -12,4 +12,4 @@ RUN npm ci
 
 RUN npm run build
 
-CMD [ "npm", "run", "prod:start" ]
+CMD [ "node", "--env-file=.env", "dist/" ]

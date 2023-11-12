@@ -43,6 +43,8 @@ client.on('interactionCreate', (interaction) => {
 	onCommand(interaction)
 })
 
-console.log('token start: ' + process.env.TOKEN?.slice(0, 2))
+if (!process.env.TOKEN) {
+	throw new Error('TOKEN is empty')
+}
 
 client.login(process.env.TOKEN)
