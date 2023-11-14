@@ -13,15 +13,7 @@ npm install
 cp .env.template .env
 ```
 
-Open `.env` and fill it
-
-Open a first terminal :
-
-```bash
-npm watch
-```
-
-And a second terminal :
+Open `.env` and fill it. Then :
 
 ```bash
 npm start

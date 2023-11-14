@@ -20,8 +20,9 @@
 		"eslint": "^7.1.0"
 	},
 	"scripts": {
-		"start": "node --watch --env-file=.env dist",
-		"watch": "tsc --outDir dist -w",
+		"start": "concurrently -n \"Build,Start\" -c \"green,magenta\" npm:watch:build npm:watch:start",
+		"watch:start": "node --watch --env-file=.env dist",
+		"watch:build": "tsc -w --outDir dist",
 		"build": "tsc --outDir dist",
 		"docker:build": "docker build . -t taelar/shanbot",
 		"docker:start": "docker run -d --rm --name shanbot taelar/shanbot",
@@ -31,6 +32,7 @@
 	},
 	"devDependencies": {
 		"@types/node": "^16.11.26",
+		"concurrently": "^8.2.2",
 		"tslib": "^2.3.1",
 		"typescript": "^4.9.5"
 	}
