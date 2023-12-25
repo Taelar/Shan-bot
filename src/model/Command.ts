@@ -6,6 +6,9 @@ export interface Command {
 	description: string
 	permissions: Array<keyof PermissionFlags>
 	isTestCommand?: boolean
-	command: Omit<SlashCommandBuilder, 'addSubcommandGroup' | 'addSubcommand'>
+	generateCommand: () => Omit<
+		SlashCommandBuilder,
+		'addSubcommandGroup' | 'addSubcommand'
+	>
 	execute: (interaction: CommandInteraction) => void
 }

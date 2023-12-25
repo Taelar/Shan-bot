@@ -1,7 +1,5 @@
-import { SlashCommandBuilder } from '@discordjs/builders'
 import { REST } from '@discordjs/rest'
 import { Routes } from 'discord-api-types/v9'
-import { help, prune, duh } from './src/commands'
 import { activatedCommands } from './src/events/onCommand'
 import { isDefined } from './src/utils/types.utils'
 
@@ -15,8 +13,8 @@ if (!(TOKEN && CLIENT_ID && GUILD_ID)) {
 }
 
 const commands = activatedCommands
-	.map(({ isTestCommand, command }) =>
-		isTestCommand && globalDeploy ? null : command.toJSON(),
+	.map(({ isTestCommand, generateCommand }) =>
+		isTestCommand && globalDeploy ? null : generateCommand().toJSON(),
 	)
 	.filter(isDefined)
 
