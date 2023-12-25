@@ -86,4 +86,10 @@ export const DUAL_EMOJIS_QUOTES: {
 	copbear: ['**POLICE DES POMPONS**', "C'est la police tavu"],
 	comfyRocket: ['Rocketto dodo', 'Just Rocketting'],
 	helicochien: ['tuh-tuh-tuh-tuh-tuh-tuh-tuh-tuh', '**LE CHIEN**'],
+	kindasusdance: [],
+	mizu: ['Gratouilles. Now.'],
+	point_gun_reverse: [],
+	point_gun: [],
+	raccoondance: [],
+	winniejuge: ['Mais ... Quoi ?'],
 }

@@ -54,6 +54,12 @@ export const EMOJI_KEYS = [
 	'copbear',
 	'comfyRocket',
 	'helicochien',
+	'kindasusdance',
+	'mizu',
+	'point_gun_reverse',
+	'point_gun',
+	'raccoondance',
+	'winniejuge',
 ] as const
 
-export type EmojiKey = typeof EMOJI_KEYS[number]
+export type EmojiKey = (typeof EMOJI_KEYS)[number]
