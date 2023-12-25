@@ -1,12 +1,20 @@
+import { SlashCommandBuilder } from '@discordjs/builders'
 import { activatedCommands } from '../events/onCommand'
 import { Command } from '../model'
 
+const NAME = 'help'
+const DESC =
+	"Liste toutes les commandes disponibles ou donne plus d'info sur une commande"
 export const help: Command = {
-	name: 'help',
+	name: NAME,
+	description: DESC,
 	permissions: [],
-	options: { command: 'Une commande' },
-	description:
-		"Liste toutes les commandes disponibles ou donne plus d'info sur une commande",
+	command: new SlashCommandBuilder()
+		.setName('help')
+		.setDescription(DESC)
+		.addStringOption((option) =>
+			option.setName('command').setDescription('Une commande'),
+		),
 	execute: (interaction) => {
 		const data: string[] = []
 		const requestedCommand = interaction.options.getString('command')

@@ -38,9 +38,11 @@ client.on('messageCreate', (message) => {
 	console.log(message.content)
 })
 
-client.on('interactionCreate', (interaction) => {
-	if (!interaction.isCommand()) return
-	onCommand(interaction)
+client.on('interactionCreate', async (interaction) => {
+	if (!interaction.isCommand()) {
+		return
+	}
+	await onCommand(interaction)
 })
 
 if (!process.env.TOKEN) {

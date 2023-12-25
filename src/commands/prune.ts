@@ -1,12 +1,18 @@
+import { SlashCommandBuilder } from '@discordjs/builders'
 import { Command } from '../model'
 
+const NAME = 'prune'
+const DESC = 'Efface le nombre de message indiqué'
 export const prune: Command = {
-	name: 'prune',
-	description: 'Efface le nombre de message indiqué',
+	name: NAME,
+	description: DESC,
 	permissions: ['MANAGE_MESSAGES'],
-	options: {
-		amount: 'Nombre de messages à supprimer',
-	},
+	command: new SlashCommandBuilder()
+		.setName(NAME)
+		.setDescription('Efface le nombre de message indiqué')
+		.addIntegerOption((option) =>
+			option.setName('amount').setDescription('Nombre de messages à supprimer'),
+		),
 	execute: (interaction) => {
 		const amount = interaction.options.getInteger('amount')
 

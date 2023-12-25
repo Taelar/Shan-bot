@@ -1,16 +1,19 @@
-import { help } from '../commands/help'
-import { prune } from '../commands/prune'
+import { duh, help, prune } from '../commands'
 import { CommandInteraction } from 'discord.js'
 
-export const activatedCommands = [help, prune]
+export const activatedCommands = [help, prune, duh]
 
-export const onCommand = (interaction: CommandInteraction) => {
-	if (interaction.user.bot) return
+export const onCommand = async (interaction: CommandInteraction) => {
+	if (interaction.user.bot) {
+		return
+	}
 	const { commandName } = interaction
 
 	const command = activatedCommands.find(({ name }) => name === commandName)
 
-	if (!command) return
+	if (!command) {
+		return
+	}
 
 	if (command.permissions) {
 		if (!interaction.memberPermissions?.has(command.permissions)) {
@@ -24,6 +27,8 @@ export const onCommand = (interaction: CommandInteraction) => {
 		command.execute(interaction)
 	} catch (error) {
 		console.error(error)
-		interaction.reply('Il y a eu un soucis en voulant executer cette commande	')
+		await interaction.reply(
+			'Il y a eu un soucis en voulant executer cette commande	',
+		)
 	}
 }

@@ -1,9 +1,11 @@
+import { SlashCommandBuilder } from '@discordjs/builders'
 import { CommandInteraction, PermissionFlags } from 'discord.js'
 
 export interface Command {
 	name: string
 	description: string
 	permissions: Array<keyof PermissionFlags>
-	options: { [key in string]: string }
+	isTestCommand?: boolean
+	command: Omit<SlashCommandBuilder, 'addSubcommandGroup' | 'addSubcommand'>
 	execute: (interaction: CommandInteraction) => void
 }

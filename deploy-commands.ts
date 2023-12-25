@@ -1,7 +1,9 @@
 import { SlashCommandBuilder } from '@discordjs/builders'
 import { REST } from '@discordjs/rest'
 import { Routes } from 'discord-api-types/v9'
-import { help, prune } from './src/commands'
+import { help, prune, duh } from './src/commands'
+import { activatedCommands } from './src/events/onCommand'
+import { isDefined } from './src/utils/types.utils'
 
 const { CLIENT_ID, GUILD_ID, TOKEN } = process.env
 
@@ -12,20 +14,11 @@ if (!(TOKEN && CLIENT_ID && GUILD_ID)) {
 	throw new Error('Can not load env var')
 }
 
-const commands = [
-	new SlashCommandBuilder()
-		.setName(prune.name)
-		.setDescription(prune.description)
-		.addIntegerOption((option) =>
-			option.setName('amount').setDescription(prune.options.amount),
-		),
-	new SlashCommandBuilder()
-		.setName(help.name)
-		.setDescription(help.description)
-		.addStringOption((option) =>
-			option.setName('command').setDescription(help.options.command),
-		),
-].map((cmd) => cmd.toJSON())
+const commands = activatedCommands
+	.map(({ isTestCommand, command }) =>
+		isTestCommand && globalDeploy ? null : command.toJSON(),
+	)
+	.filter(isDefined)
 
 const rest = new REST({ version: '9' }).setToken(TOKEN)
 
