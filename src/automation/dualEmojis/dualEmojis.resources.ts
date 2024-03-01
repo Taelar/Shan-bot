@@ -92,4 +92,18 @@ export const DUAL_EMOJIS_QUOTES: {
 	point_gun: [],
 	raccoondance: [],
 	winniejuge: ['Mais ... Quoi ?'],
+	lyzuneMeh: ["Je... D'accord."],
+	lyzuneSweat: [],
+	lyzuneHappy: [],
+	pecheWhat: ['De koi ?', 'kwa ?', "Zoval, c'est le joallier ?"],
+	pecheWow: [
+		'Oh des saucisses !',
+		'Ce serait encore mieux avec des saucisses !',
+		'Oh un nain disco',
+	],
+	pecheAngry: [
+		'Greuh.',
+		"C'est toi qui a mangé toutes les saucisses ?",
+		'Rends les saucisses',
+	],
 }

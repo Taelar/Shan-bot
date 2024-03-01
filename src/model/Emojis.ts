@@ -60,6 +60,12 @@ export const EMOJI_KEYS = [
 	'point_gun',
 	'raccoondance',
 	'winniejuge',
+	'lyzuneMeh',
+	'lyzuneSweat',
+	'lyzuneHappy',
+	'pecheWhat',
+	'pecheWow',
+	'pecheAngry',
 ] as const
 
 export type EmojiKey = (typeof EMOJI_KEYS)[number]
