@@ -203,4 +203,12 @@ export const DUAL_EMOJIS_QUOTES: DualEmojisDict = {
 		],
 		links: [],
 	},
+	catwhat: {
+		emojis: ['¿ Ma ke ?'],
+		links: [],
+	},
+	dogeing: {
+		emojis: [],
+		links: [],
+	},
 }
