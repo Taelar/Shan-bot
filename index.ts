@@ -2,6 +2,7 @@ import { Client, Intents } from 'discord.js'
 import { onMessage } from './src/events/onMessage'
 import { onCommand } from './src/events/onCommand'
 import { BotState } from './src/model/BotState'
+import { devModeLog } from './src/utils/function.utils'
 
 // Init
 
@@ -35,7 +36,7 @@ client.on('messageCreate', (message) => {
 	if (client.user === null) return
 
 	onMessage(message, client.user, state)
-	console.log(message.content)
+	devModeLog(message.content)
 })
 
 client.on('interactionCreate', async (interaction) => {

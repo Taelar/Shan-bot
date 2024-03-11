@@ -3,6 +3,11 @@ import { Automation } from '../../model/Automation'
 import { isDefined } from '../../utils/types.utils'
 import { randInt } from '../../utils/random.utils'
 import { DUAL_EMOJIS_QUOTES } from './dualEmojis.resources'
+import { IS_DEV_MODE_ACTIVE, devModeLog } from '../../utils/function.utils'
+
+const authorComparison = (authorId: string, lastMessageAuthorId: string) => {
+	return IS_DEV_MODE_ACTIVE || authorId !== lastMessageAuthorId
+}
 
 export const dualEmojisAutomation: Automation = (
 	message,
@@ -23,31 +28,40 @@ export const dualEmojisAutomation: Automation = (
 
 		if (
 			currentEmoji === lastEmoji &&
-			author.id !== lastMessage.author.id &&
+			authorComparison(author.id, lastMessage.author.id) &&
 			emojiName
 		) {
 			const emoji = findEmoji(emojiName, message)
 			const dedicatedQuotes = DUAL_EMOJIS_QUOTES[emojiName]
-			console.log('dual emojis', emoji, JSON.stringify(dedicatedQuotes))
+			console.log('dual emojis', JSON.stringify(dedicatedQuotes))
+			devModeLog(JSON.stringify(emoji))
 
-			if (emoji) {
-				// Par défaut, on répète juste l'emoji
-				let answer = `${emoji}`
-				// Si des quotes sont disponibles
-				if (dedicatedQuotes != undefined && dedicatedQuotes.length > 0) {
-					// On rand quotes.length
-					const rand = randInt(0, dedicatedQuotes.length)
-					// Si le rand le permet, on prend une quote random
-					if (rand < dedicatedQuotes.length) {
-						const quote = dedicatedQuotes[rand]
-						answer = `${emoji} ${quote} ${emoji}`
+			if (!emoji) {
+				return
+			}
+
+			if (dedicatedQuotes) {
+				const formatedEmojisQuotes = dedicatedQuotes.emojis.map(
+					(quote) => `${emoji} ${quote} ${emoji}`,
+				)
+				const possibleQuotes = [
+					...formatedEmojisQuotes,
+					...dedicatedQuotes.links,
+				]
+
+				if (possibleQuotes.length > 0) {
+					const rand = randInt(0, possibleQuotes.length)
+					const quote = possibleQuotes.at(rand)
+					if (quote) {
+						channel.send(quote)
+						return
 					}
 				}
-
-				channel.send(answer)
-				// Reset du last message
-				state.lastMessage = null
 			}
+			// Par défaut, on répète juste l'emoji
+			channel.send(emoji.toString())
+			// Reset du last message
+			state.lastMessage = null
 		}
 	}
 }
