@@ -183,7 +183,7 @@ export const DUAL_EMOJIS_QUOTES: DualEmojisDict = {
 			'De koi ?',
 			'kwa ?',
 			"Zoval, c'est le joallier ?",
-			"C'est qui Lazérite ?",
+			"C'est qui Laz et Rite ?",
 		],
 		links: [],
 	},
@@ -208,7 +208,7 @@ export const DUAL_EMOJIS_QUOTES: DualEmojisDict = {
 		links: [],
 	},
 	dogeing: {
-		emojis: [],
+		emojis: ['éh ui'],
 		links: [],
 	},
 }
