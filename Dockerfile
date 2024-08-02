@@ -2,14 +2,7 @@ FROM node:iron-alpine
 
 WORKDIR /usr/src/app
 
-COPY src ./src
-COPY index.ts ./
-COPY tsconfig.json ./
-COPY package*.json ./
+COPY dist ./dist
 COPY .env ./
-
-RUN npm ci
-
-RUN npm run build
 
 CMD [ "node", "--env-file=.env", "dist/" ]
