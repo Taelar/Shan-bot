@@ -1,8 +1,8 @@
 import { Client, Intents } from 'discord.js'
-import { onMessage } from './src/events/onMessage'
-import { onCommand } from './src/events/onCommand'
-import { BotState } from './src/model/BotState'
-import { devModeLog } from './src/utils/function.utils'
+import { onMessage } from './events/onMessage'
+import { onCommand } from './events/onCommand'
+import { BotState } from './model/BotState'
+import { devModeLog } from './utils/function.utils'
 
 // Init
 

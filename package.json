@@ -11,27 +11,28 @@
 	"engines": {
 		"node": "20"
 	},
-	"dependencies": {
-		"@discordjs/builders": "^0.12.0",
-		"@discordjs/rest": "^0.3.0",
-		"discord-api-types": "^0.29.0",
-		"discord.js": "^13.6.0",
-		"discordx": "^9.1.12",
-		"eslint": "^7.1.0"
-	},
 	"scripts": {
 		"start": "concurrently -n \"Build,Start\" -c \"green,magenta\" npm:watch:build npm:watch:start",
 		"watch:start": "node --watch --env-file=.env dist",
-		"watch:build": "tsc -w --outDir dist",
-		"build": "tsc --outDir dist",
+		"watch:build": "ncc build src/index.ts -w -o dist",
+		"build": "ncc build src/index.ts -o dist",
 		"docker:build": "docker build . -t taelar/shanbot",
 		"docker:start": "docker run -d --rm --name shanbot taelar/shanbot",
 		"commands:build": "tsc deploy-commands.ts --outDir dist --moduleResolution nodenext --skipLibCheck true",
 		"commands:guild": "node --env-file=.env dist/deploy-commands.js -- global=false",
 		"commands:global": "node --env-file=.env dist/deploy-commands.js -- global=true"
 	},
+	"dependencies": {
+		"@discordjs/builders": "^0.12.0",
+		"@discordjs/rest": "^0.3.0",
+		"discord-api-types": "^0.29.0",
+		"discord.js": "^13.6.0",
+		"discordx": "^9.1.12"
+	},
 	"devDependencies": {
 		"@types/node": "^16.11.26",
+		"@vercel/ncc": "^0.38.1",
+		"eslint": "^7.1.0",
 		"concurrently": "^8.2.2",
 		"tslib": "^2.3.1",
 		"typescript": "^4.9.5"
