@@ -3,7 +3,8 @@ on:
   push:
     branches:
       - master
-      - develop
+  workflow_dispatch:
+
 jobs:
   deploy:
     name: Deploy app
@@ -12,6 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: superfly/flyctl-actions/setup-flyctl@master
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - run: npm ci
+      - run: npm run build
+      # - run: npm run test
       - run: |
           echo TOKEN=${{ secrets.DISCORD_TOKEN }} >> .env
           echo GUILD_ID=${{ secrets.GUILD_ID }} >> .env

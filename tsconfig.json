@@ -1,8 +1,8 @@
 {
 	"compilerOptions": {
 		"lib": ["es2021"],
-		"module": "commonjs",
-		"target": "esnext",
+		"module": "Node16",
+		"target": "es2022",
 		"strict": true,
 		"esModuleInterop": true,
 		"skipLibCheck": true,
