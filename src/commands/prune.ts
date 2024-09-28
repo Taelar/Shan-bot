@@ -1,5 +1,6 @@
 import { SlashCommandBuilder } from '@discordjs/builders'
 import { Command } from '../model'
+import { devModeLog } from '../utils/function.utils'
 
 export const prune: Command = {
 	name: 'prune',
@@ -28,7 +29,7 @@ export const prune: Command = {
 			interaction.channel
 				.bulkDelete(amount, true)
 				.then((messages) => {
-					console.info(`${messages.size} messages deleted`)
+					devModeLog(`${messages.size} messages deleted`)
 					interaction.reply({
 						content: `${messages.size} messages supprimés`,
 						ephemeral: true,

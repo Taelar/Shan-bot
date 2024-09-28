@@ -33,8 +33,11 @@ export const dualEmojisAutomation: Automation = (
 		) {
 			const emoji = findEmoji(emojiName, message)
 			const dedicatedQuotes = DUAL_EMOJIS_QUOTES[emojiName]
-			console.log('dual emojis', JSON.stringify(dedicatedQuotes))
-			devModeLog(JSON.stringify(emoji))
+			devModeLog(
+				'dual emojis',
+				JSON.stringify(emoji),
+				JSON.stringify(dedicatedQuotes),
+			)
 
 			if (!emoji) {
 				return
