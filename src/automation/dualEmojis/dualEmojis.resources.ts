@@ -4,7 +4,7 @@ type DualEmojiEntry = {
 	emojis: Array<string>
 	links: Array<string>
 }
-type DualEmojisDict = Record<EmojiKey, DualEmojiEntry>
+export type DualEmojisDict = Record<EmojiKey, DualEmojiEntry>
 
 export const DUAL_EMOJIS_QUOTES: DualEmojisDict = {
 	SEBASTIAN: {
