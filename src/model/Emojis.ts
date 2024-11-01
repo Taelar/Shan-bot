@@ -1,6 +1,6 @@
 export const EMOJI_KEYS = [
 	'GABYhein',
-	'Duh',
+	'paswar',
 	'GABYseum',
 	'THOMASstyle',
 	'Deeplysad',

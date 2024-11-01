@@ -1,6 +1,6 @@
 # Shan'bot
 
-I'm not sure how to describe it, but I know one thing for sure is that the word "duh" needs to appear somewhere.
+I'm not sure how to describe it, but I know one thing for sure : This bot is totally useless.
 
 Forked from [arnaudhuc/Erina](https://github.com/arnaudhuc/Erina).
 
@@ -66,7 +66,7 @@ Shan'bot's automatic behaviors. The bot can, for example, react to message with 
 List of automations :
 
 - Dual Emojis : Replies with a predeterminated quote when two users use the same emoji
-- Emote on mention : Reacts with an emoji "duh" when its name is mentionned in a message
+- Emote on mention : Reacts with an emoji "paswar" when its name is mentionned in a message
 - Perceval : Sends sometimes (random determined) a Perceval quote (from Kaamelott) when someone talks in a channel
 - Pingpong Emojis : Sends a predeterminated quote when two users use two different emojis that are "linked"
 - Random Reactions : Reacts sometimes (random determined) with a random emoji when someone talks in a channel

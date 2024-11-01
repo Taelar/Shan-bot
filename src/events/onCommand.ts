@@ -1,7 +1,7 @@
-import { duh, help, prune } from '../commands'
+import { gne, help, prune } from '../commands'
 import { CommandInteraction } from 'discord.js'
 
-export const activatedCommands = [help, prune, duh]
+export const activatedCommands = [help, prune, gne]
 
 export const onCommand = async (interaction: CommandInteraction) => {
 	if (interaction.user.bot) {

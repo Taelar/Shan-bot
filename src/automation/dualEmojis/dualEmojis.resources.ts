@@ -17,10 +17,10 @@ export const DUAL_EMOJIS_QUOTES: DualEmojisDict = {
 		],
 		links: [],
 	},
-	Duh: {
+	paswar: {
 		emojis: [
 			"La Colo'shan est parfaitement demeurée",
-			'**DUH**',
+			'g 1 jouli paswar',
 			'g pa de cervo',
 		],
 		links: [],

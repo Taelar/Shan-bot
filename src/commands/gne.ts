@@ -1,8 +1,8 @@
 import { Command } from '../model'
 import { SlashCommandBuilder } from '@discordjs/builders'
 
-export const duh: Command = {
-	name: 'duh',
+export const gne: Command = {
+	name: 'gne',
 	description: 'Test command',
 	permissions: [],
 	isTestCommand: true,
