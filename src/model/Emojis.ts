@@ -68,6 +68,7 @@ export const EMOJI_KEYS = [
 	'pecheAngry',
 	'dogeing',
 	'catwhat',
+	'ossHabile',
 ] as const
 
 export type EmojiKey = (typeof EMOJI_KEYS)[number]

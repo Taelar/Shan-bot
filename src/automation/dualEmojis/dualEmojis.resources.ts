@@ -214,4 +214,11 @@ export const DUAL_EMOJIS_QUOTES: DualEmojisDict = {
 		emojis: ['éh ui'],
 		links: [],
 	},
+	ossHabile: {
+		emojis: ['Habile.'],
+		links: [
+			'https://tenor.com/view/oss-117-oss117-jean-dujardin-habile-gif-13338740',
+			'https://tenor.com/view/habile-bill-habile-bill-tremendous-oss-gif-19801665',
+		],
+	},
 }
