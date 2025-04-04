@@ -46,6 +46,17 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
       - run: npm run build
+      - name: Check build output
+        run: |
+          ls -la
+          if [ -d "dist" ]; then
+            echo "Contents of dist directory:"
+            ls -la dist/
+          else
+            echo "dist directory does not exist"
+            echo "Current directory contents:"
+            ls -la
+          fi
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
