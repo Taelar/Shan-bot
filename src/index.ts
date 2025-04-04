@@ -30,6 +30,7 @@ client.once('ready', () => {
 		type: 'WATCHING',
 	})
 	console.log('Server Started & ready !')
+	devModeLog('Dev mode is active')
 })
 
 client.on('messageCreate', (message) => {

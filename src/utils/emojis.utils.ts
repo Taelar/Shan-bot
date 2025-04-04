@@ -1,8 +1,9 @@
-import { Message } from 'discord.js'
+import { Collection, GuildEmoji, Message } from 'discord.js'
 import { EmojiKey } from '../model'
 
 export const EMOJI_REGEX = /<(a?):(\w+):\d+>/
 
+/** @deprecated Use getEmoji */
 export const findEmoji = (name: string, message: Message) => {
 	const emoji = message.guild?.emojis.cache.find(
 		(emoji) => emoji.name?.toLowerCase() == name.toLowerCase(),
@@ -12,6 +13,17 @@ export const findEmoji = (name: string, message: Message) => {
 	} else {
 		console.error(`Unable to find ${name} emoji`)
 	}
+}
+
+export const getEmoji = (
+	name: string,
+	emojiList: Collection<string, GuildEmoji>,
+) => {
+	const emoji = emojiList.find(
+		(emoji) => emoji.name?.toLowerCase() == name.toLowerCase(),
+	)
+
+	return emoji
 }
 
 export const getEmojiName = (emoji: string): EmojiKey | undefined => {
