@@ -101,7 +101,10 @@ export const DUAL_EMOJIS_QUOTES: DualEmojisDict = {
 		emojis: ["P'tit chat", 'Miaou', "C'est pas l'emote le problème"],
 		links: [],
 	},
-	Gneuhgneuhgneuh: { emojis: ["vArIaN c lE pÈrE d'aNdUiN"], links: [] },
+	Gneuhgneuhgneuh: {
+		emojis: ["vArIaN c lE pÈrE d'aNdUiN", 'tHe wHoLe cItY mUsT bE pUrGeD'],
+		links: [],
+	},
 	cNon: {
 		emojis: ["C'est non.", "Eeeeeeeeeeeeeeeeeeeeeeeeeeet c'est non."],
 		links: [],

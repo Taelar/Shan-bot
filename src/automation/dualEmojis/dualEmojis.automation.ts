@@ -1,19 +1,10 @@
-import {
-	EMOJI_REGEX,
-	findEmoji,
-	getEmoji,
-	getEmojiName,
-} from '../../utils/emojis.utils'
+import { getEmoji, getEmojiName } from '../../utils/emojis.utils'
 import { Automation } from '../../model/Automation'
-import { isDefined } from '../../utils/types.utils'
 import { randInt } from '../../utils/random.utils'
 import { DUAL_EMOJIS_QUOTES, DualEmojisDict } from './dualEmojis.resources'
-import { IS_DEV_MODE_ACTIVE, devModeLog } from '../../utils/function.utils'
-import { Collection, EmojiResolvable, GuildEmoji } from 'discord.js'
-
-const isDifferentAuthor = (authorId: string, lastMessageAuthorId: string) => {
-	return IS_DEV_MODE_ACTIVE || authorId !== lastMessageAuthorId
-}
+import { devModeLog } from '../../utils/function.utils'
+import { Collection, GuildEmoji } from 'discord.js'
+import { isDifferentAuthor } from '../../utils/message.utils'
 
 export const dualEmojisAutomation: Automation = (
 	message,
