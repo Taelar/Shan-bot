@@ -5,20 +5,83 @@ on:
       - master
   workflow_dispatch:
 
+defaults:
+  run:
+    shell: bash
+env:
+  DEFAULT_RUNNER: ubuntu-latest
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# Jobs
+
 jobs:
-  deploy:
-    name: Deploy app
-    runs-on: ubuntu-latest
-    concurrency: deploy-group # ensure only one action runs at a time
+  install:
+    name: Install dependencies
+    runs-on: ${{ env.DEFAULT_RUNNER }}
     steps:
       - uses: actions/checkout@v4
-      - uses: superfly/flyctl-actions/setup-flyctl@master
       - uses: actions/setup-node@v4
         with:
           node-version: '20.x'
       - run: npm ci
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
+  build:
+    name: Build app
+    needs: install
+    runs-on: ${{ env.DEFAULT_RUNNER }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - name: Restore node modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
       - run: npm run build
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-files
+          path: dist/
+          retention-days: 1
+
+  test:
+    name: Test app
+    needs: install
+    runs-on: ${{ env.DEFAULT_RUNNER }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - name: Restore node modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
       - run: npm run test
+
+  deploy:
+    name: Deploy app
+    needs: [build, test]
+    runs-on: ${{ env.DEFAULT_RUNNER }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build-files
+          path: dist/
       - run: |
           echo TOKEN=${{ secrets.DISCORD_TOKEN }} >> .env
           echo GUILD_ID=${{ secrets.GUILD_ID }} >> .env
