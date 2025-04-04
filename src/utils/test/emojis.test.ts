@@ -5,8 +5,8 @@ import { MOCK_EMOJI_COLLECTION } from '../../test/emojis.mock'
 test.each([
 	{
 		title: 'Message only contains emoji',
-		message: '<:Duh:111>',
-		expected: 'Duh',
+		message: '<:waf:111>',
+		expected: 'waf',
 	},
 	{
 		title: 'Animated emoji',
@@ -16,13 +16,13 @@ test.each([
 	{ title: 'Message contains no emojis', message: 'wazo', expected: undefined },
 	{
 		title: 'Message contains emoji and text',
-		message: 'wazo <:Duh:111>',
-		expected: 'Duh',
+		message: 'wazo <:waf:111>',
+		expected: 'waf',
 	},
 	{
 		title: 'Message contains two emojis',
-		message: '<:Duh:111> <:AH:222>',
-		expected: 'Duh',
+		message: '<:waf:111> <:AH:222>',
+		expected: 'waf',
 	},
 ])('Get emoji Name: $title', ({ message, expected }) => {
 	const result = getEmojiName(message)
@@ -32,8 +32,8 @@ test.each([
 test.each([
 	{
 		title: 'Basic emoji',
-		name: 'Duh',
-		expected: 'Duh',
+		name: 'waf',
+		expected: 'waf',
 	},
 	{ title: 'Unknown emoji', name: 'unknown', expected: undefined },
 ])('Get emoji : $title', ({ name, expected }) => {
