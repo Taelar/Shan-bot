@@ -1,6 +1,6 @@
 import { EmojiKey } from '../../model'
 
-type PingPongDictionnary = Partial<
+export type PingPongDictionnary = Partial<
 	Record<`${EmojiKey}/${EmojiKey}`, Array<string>>
 >
 
