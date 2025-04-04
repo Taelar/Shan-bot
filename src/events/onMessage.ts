@@ -1,6 +1,6 @@
 import {
 	dualEmojisAutomation,
-	percevalAutomation,
+	randomQuoteAutomation,
 	pingpongEmojis,
 	emoteOnMention,
 	randomReaction,
@@ -10,7 +10,7 @@ import { Automation } from '../model'
 
 const automationFunctions: Automation[] = [
 	dualEmojisAutomation,
-	percevalAutomation,
+	randomQuoteAutomation,
 	pingpongEmojis,
 	emoteOnMention,
 	randomReaction,

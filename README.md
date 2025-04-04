@@ -67,7 +67,7 @@ List of automations :
 
 - Dual Emojis : Replies with a predeterminated quote when two users use the same emoji
 - Emote on mention : Reacts with an emoji "paswar" when its name is mentionned in a message
-- Perceval : Sends sometimes (random determined) a Perceval quote (from Kaamelott) when someone talks in a channel
+- RandomQuote : Sends sometimes (random determined) a random quote when someone talks in a channel
 - Pingpong Emojis : Sends a predeterminated quote when two users use two different emojis that are "linked"
 - Random Reactions : Reacts sometimes (random determined) with a random emoji when someone talks in a channel
 - Trigger words : Sends one of the predeterminated quotes when someone uses one of the listed words

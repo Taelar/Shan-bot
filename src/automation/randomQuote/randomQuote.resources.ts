@@ -1,4 +1,6 @@
-export const PERCEVAL_QUOTES = [
+import { EmojiKey } from '../../model'
+
+const PERCEVAL_QUOTES = [
 	"Après demain, à partir d'aujourd'hui ?",
 	'Le code c\'est "le code" ? Ça va, ils se sont pas trop cassés le bonnet, pour l\'trouver celui-là !',
 	"Faut faire comme avec les scorpions qui se suicident quand ils sont entourés par le feu, faut faire un feu en forme de cercle, autour d'eux, comme ça ils se suicident, pendant que nous on fait le tour et on lance de la caillasse de l'autre côté pour brouiller... Non ?",
@@ -68,4 +70,13 @@ export const PERCEVAL_QUOTES = [
 	"On a une autorité naturelle, il faut en profiter... J'suis sûr que même à poil on ferait toujours chef !",
 	'Si la mémoire est à la tête ce que le passé, peut-on y accéder à six ? Oui, non, zbradaraldjan ?',
 	"C'est vraiment chouette comme rêve... Moi l'autre nuit j'ai rêvé que Karadoc avait des pinces... Comme un crabe... Il me pinçait le ménisque... Comparés aux vôtres, ils sont pourris mes rêves, ou pas?",
+]
+
+interface RandomQuoteEntry {
+	emoji: EmojiKey
+	quotes: Array<string>
+}
+
+export const RANDOM_QUOTES: Array<RandomQuoteEntry> = [
+	{ emoji: 'Perceval', quotes: PERCEVAL_QUOTES },
 ]
