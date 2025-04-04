@@ -58,10 +58,10 @@ jobs:
             ls -la
           fi
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-files
-          path: dist/
+          path: dist
           retention-days: 1
 
   test:
@@ -87,10 +87,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-files
-          path: dist/
+          path: dist
       - run: |
           echo TOKEN=${{ secrets.DISCORD_TOKEN }} >> .env
           echo GUILD_ID=${{ secrets.GUILD_ID }} >> .env
