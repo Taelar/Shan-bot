@@ -14,7 +14,7 @@ export const randomQuoteAutomation: Automation = (
 	const shouldSendQuote = randInt(0, MAX_RAND)
 	if (shouldSendQuote !== 0 || !emojiList) return
 
-	const quoteEntryIndex = randInt(0, RANDOM_QUOTES.length)
+	const quoteEntryIndex = randInt(0, RANDOM_QUOTES.length - 1)
 	const quoteEntry = RANDOM_QUOTES.at(quoteEntryIndex)
 	if (!quoteEntry || quoteEntry.quotes.length === 0) return
 
