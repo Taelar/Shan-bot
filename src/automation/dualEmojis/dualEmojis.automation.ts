@@ -1,10 +1,16 @@
-import { getEmoji, getEmojiName } from '../../utils/emojis.utils'
+import {
+	extractEmojis,
+	getEmoji,
+	getEmojiName,
+	isKnownEmoji,
+} from '../../utils/emojis.utils'
 import { Automation } from '../../model/Automation'
 import { randInt } from '../../utils/random.utils'
 import { DUAL_EMOJIS_QUOTES, DualEmojisDict } from './dualEmojis.resources'
 import { devModeLog } from '../../utils/function.utils'
 import { Collection, GuildEmoji } from 'discord.js'
 import { isDifferentAuthor } from '../../utils/message.utils'
+import { isDefined } from '../../utils/types.utils'
 
 export const dualEmojisAutomation: Automation = (
 	message,
@@ -37,15 +43,31 @@ export const dualEmojiProcessor = (
 	emojiList: Collection<string, GuildEmoji>,
 	quotes: DualEmojisDict,
 ) => {
-	const currentEmoji = getEmojiName(currentMessage)
-	const currentEmojiName = getEmojiName(currentMessage)
-	const lastEmoji = getEmojiName(lastMessage)
+	const currentEmojis = extractEmojis(currentMessage, emojiList)
+	const lastEmojis = extractEmojis(lastMessage, emojiList)
+	if (!currentEmojis.length || !lastEmojis.length) return
 
-	if (!currentEmoji || !currentEmojiName || !lastEmoji) return
-	if (currentEmoji !== lastEmoji) return
+	const emojiIntersection = currentEmojis.filter((emoji) =>
+		lastEmojis.includes(emoji),
+	)
+	if (!emojiIntersection.length) return
 
-	const emoji = getEmoji(currentEmojiName, emojiList)
-	const dedicatedQuotes = quotes[currentEmojiName]
+	const sanitiziedEmojis = emojiIntersection
+		.map(({ name }) => name)
+		.filter(isDefined)
+
+	const emojiRand = randInt(0, sanitiziedEmojis.length)
+	const emojiName = sanitiziedEmojis.at(emojiRand)
+	if (!emojiName) return
+
+	const emoji = getEmoji(emojiName, emojiList)
+	if (!emoji) return
+
+	if (!isKnownEmoji(emojiName)) {
+		return emoji.toString()
+	}
+
+	const dedicatedQuotes = quotes[emojiName]
 	devModeLog(
 		'dual emojis',
 		JSON.stringify(emoji),
@@ -57,14 +79,14 @@ export const dualEmojiProcessor = (
 	const formatedEmojisQuotes = dedicatedQuotes.emojis.map(
 		(quote) => `${emoji} ${quote} ${emoji}`,
 	)
-	const possibleQuotes = [...formatedEmojisQuotes, ...dedicatedQuotes.links]
+	const possibleQuotes_ = [...formatedEmojisQuotes, ...dedicatedQuotes.links]
 
-	if (possibleQuotes.length === 0) {
+	if (possibleQuotes_.length === 0) {
 		return emoji.toString()
 	}
 
-	const rand = randInt(0, possibleQuotes.length)
-	const quote = possibleQuotes.at(rand)
+	const rand = randInt(0, possibleQuotes_.length)
+	const quote = possibleQuotes_.at(rand)
 
 	return quote
 }

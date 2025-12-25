@@ -24,6 +24,11 @@ test.each([
 		lastMessage: '<:waf:111> <:AH:222>',
 		currentMessage: '<:waf:111> <:AH:222>',
 	},
+	{
+		title: 'Emojis in differents order',
+		lastMessage: '<:ui:333> <:waf:111>',
+		currentMessage: '<:waf:111> <:AH:222>',
+	},
 ])('Dual emoji valid case : $title', ({ lastMessage, currentMessage }) => {
 	const result = dualEmojiProcessor(
 		lastMessage,

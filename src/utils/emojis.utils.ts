@@ -1,5 +1,5 @@
 import { Collection, Emoji, GuildEmoji, Message } from 'discord.js'
-import { EmojiKey } from '../model'
+import { EMOJI_KEYS, EmojiKey } from '../model'
 
 export const EMOJI_NAME_REGEX = /<(?<animated>a?):(?<name>\w+):(?<id>\d+)>/
 export const EMOJI_REGEX = new RegExp(
@@ -36,6 +36,9 @@ export const getEmojiName = (emoji: string): EmojiKey | undefined => {
 
 	return nameMatch ? (nameMatch as EmojiKey) : undefined
 }
+
+export const isKnownEmoji = (emojiName: string): emojiName is EmojiKey =>
+	(EMOJI_KEYS as ReadonlyArray<string>).includes(emojiName)
 
 export const extractEmojis = (
 	input: string,
