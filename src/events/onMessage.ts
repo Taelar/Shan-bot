@@ -8,6 +8,7 @@ import {
 } from '../automation'
 import { Automation } from '../model'
 
+// Todo : anti-affinité : dual emojis & pingpong & randomQuotes
 const automationFunctions: Automation[] = [
 	dualEmojisAutomation,
 	randomQuoteAutomation,

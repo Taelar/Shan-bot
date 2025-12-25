@@ -1,9 +1,10 @@
 import {
 	PINGPONG_EMOJIS_QUOTES,
 	PingPongDictionnary,
+	PingPongKey,
 } from './pingpongEmojis.resources'
 import { randInt } from '../../utils/random.utils'
-import { getEmoji, getEmojiName } from '../../utils/emojis.utils'
+import { extractEmojis, getEmoji, getEmojiName } from '../../utils/emojis.utils'
 import { Automation } from '../../model'
 import { Collection, GuildEmoji } from 'discord.js'
 import { isDifferentAuthor } from '../../utils/message.utils'
@@ -37,33 +38,40 @@ export const pingpongEmojisProcessor = (
 	emojiList: Collection<string, GuildEmoji>,
 	dict: PingPongDictionnary,
 ) => {
-	const emoji1Name = getEmojiName(lastMessage)
-	const emoji2Name = getEmojiName(currentMessage)
+	const emojis1 = extractEmojis(lastMessage, emojiList)
+	const emojis2 = extractEmojis(currentMessage, emojiList)
 
-	if (!emoji1Name || !emoji2Name) return
+	const combinations = emojis1.flatMap((emoji1Name) => {
+		return emojis2.flatMap((emoji2Name) => [
+			`${emoji1Name.name}/${emoji2Name.name}`,
+			`${emoji2Name.name}/${emoji1Name.name}`,
+		])
+	})
 
-	const pingpongs = [
-		`${emoji1Name}/${emoji2Name}`,
-		`${emoji2Name}/${emoji1Name}`,
-	]
-	const quotesEntry = Object.entries(PINGPONG_EMOJIS_QUOTES).find(([key]) =>
-		pingpongs.includes(key),
+	if (!combinations.length) return
+
+	const quotesEntry = Object.entries(dict).find(([key]) =>
+		combinations.includes(key),
 	)
-	const quotes = quotesEntry?.at(0)
+	if (!quotesEntry) return
+
+	const [quoteKey, quotes] = quotesEntry as [PingPongKey, Array<string>]
 	devModeLog(
 		'pingpong emojis',
-		JSON.stringify(pingpongs),
-		JSON.stringify(quotes),
+		JSON.stringify(combinations),
+		JSON.stringify(quoteKey),
 	)
-
-	if (!quotes || quotes.length === 0) return
+	if (!quotes.length) return
 
 	const rand = randInt(0, quotes.length)
+	const quote = quotes.at(rand)
+	if (!quote) return
 
-	const emoji1 = getEmoji(emoji1Name, emojiList)
-	const emoji2 = getEmoji(emoji2Name, emojiList)
+	const splitedKey = quoteKey.split('/')
+	if (splitedKey.length !== 2) return
 
-	const answer = `${emoji1} ${quotes[rand]} ${emoji2}`
+	const emoji1 = getEmoji(splitedKey.at(0)!, emojiList)
+	const emoji2 = getEmoji(splitedKey.at(1)!, emojiList)
 
-	return answer
+	return `${emoji1} ${quote} ${emoji2}`
 }
