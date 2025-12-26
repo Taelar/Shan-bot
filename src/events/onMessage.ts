@@ -1,26 +1,26 @@
 import {
-	dualEmojisAutomation,
-	randomQuoteAutomation,
+	dualEmojis,
+	randomQuote,
 	pingpongEmojis,
 	emoteOnMention,
 	randomReaction,
 	triggerWords,
 } from '../automation'
-import { Automation } from '../model'
+import { Automation, AutomationRunner } from '../model'
 
 // Todo : anti-affinité : dual emojis & pingpong & randomQuotes
 const automationFunctions: Automation[] = [
-	dualEmojisAutomation,
-	randomQuoteAutomation,
-	pingpongEmojis,
-	emoteOnMention,
 	randomReaction,
+	emoteOnMention,
 	triggerWords,
+	dualEmojis,
+	randomQuote,
+	pingpongEmojis,
 ]
 
-export const onMessage: Automation = (message, clientUser, state) => {
+export const onMessage: AutomationRunner = (message, clientUser, state) => {
 	if (message.member?.user.bot) return
 
-	automationFunctions.forEach((aut) => aut(message, clientUser, state))
+	automationFunctions.forEach((aut) => aut.runner(message, clientUser, state))
 	state.lastMessage = message
 }

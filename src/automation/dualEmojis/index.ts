@@ -1,1 +1,1 @@
-export { dualEmojisAutomation } from './dualEmojis.automation'
+export { dualEmojis } from './dualEmojis.automation'

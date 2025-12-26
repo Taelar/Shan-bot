@@ -1,15 +1,11 @@
-import { Automation } from '../../model'
+import { Automation, AutomationRunner } from '../../model'
 import { RANDOM_QUOTES } from './randomQuote.resources'
 import { getEmoji } from '../../utils/emojis.utils'
 import { randInt } from '../../utils/random.utils'
 
 const MAX_RAND = 125
 
-export const randomQuoteAutomation: Automation = (
-	message,
-	clientUser,
-	state,
-) => {
+const randomQuoteRunner: AutomationRunner = (message, clientUser, state) => {
 	const emojiList = message.guild?.emojis.cache
 	const shouldSendQuote = randInt(0, MAX_RAND)
 	if (shouldSendQuote !== 0 || !emojiList) return
@@ -26,4 +22,10 @@ export const randomQuoteAutomation: Automation = (
 	if (!quote || !emote) return
 
 	message.channel.send(`${emote} ${quote}`)
+}
+
+export const randomQuote: Automation = {
+	role: 'message',
+	antiAffinities: ['message'],
+	runner: randomQuoteRunner,
 }

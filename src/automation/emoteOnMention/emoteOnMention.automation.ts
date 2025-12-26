@@ -1,10 +1,10 @@
-import { Automation } from '../../model/Automation'
+import { Automation, AutomationRunner } from '../../model/Automation'
 import { findEmoji } from '../../utils/emojis.utils'
 
 const BOTNAME = "Shan'bot"
 const EMOJI_NAME = 'paswar'
 
-export const emoteOnMention: Automation = (message, clientUser, state) => {
+const emoteOnMentionRunner: AutomationRunner = (message, clientUser, state) => {
 	if (
 		message.content.toLowerCase().includes(BOTNAME.toLowerCase()) ||
 		message.mentions.has(clientUser)
@@ -14,4 +14,10 @@ export const emoteOnMention: Automation = (message, clientUser, state) => {
 			message.react(emoji)
 		}
 	}
+}
+
+export const emoteOnMention: Automation = {
+	role: 'reaction',
+	antiAffinities: [],
+	runner: emoteOnMentionRunner,
 }

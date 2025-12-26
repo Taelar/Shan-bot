@@ -4,7 +4,7 @@ import {
 	getEmojiName,
 	isKnownEmoji,
 } from '../../utils/emojis.utils'
-import { Automation } from '../../model/Automation'
+import { Automation, AutomationRunner } from '../../model/Automation'
 import { randInt } from '../../utils/random.utils'
 import { DUAL_EMOJIS_QUOTES, DualEmojisDict } from './dualEmojis.resources'
 import { devModeLog } from '../../utils/function.utils'
@@ -12,11 +12,7 @@ import { Collection, GuildEmoji } from 'discord.js'
 import { isDifferentAuthor } from '../../utils/message.utils'
 import { isDefined } from '../../utils/types.utils'
 
-export const dualEmojisAutomation: Automation = (
-	message,
-	clientUser,
-	state,
-) => {
+const dualEmojisRunner: AutomationRunner = (message, clientUser, state) => {
 	const { lastMessage } = state
 	const emojiList = message.guild?.emojis.cache
 
@@ -89,4 +85,10 @@ export const dualEmojiProcessor = (
 	const quote = possibleQuotes_.at(rand)
 
 	return quote
+}
+
+export const dualEmojis: Automation = {
+	role: 'message',
+	antiAffinities: ['message'],
+	runner: dualEmojisRunner,
 }

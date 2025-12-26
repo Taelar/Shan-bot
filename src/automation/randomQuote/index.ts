@@ -1,1 +1,1 @@
-export { randomQuoteAutomation } from './randomQuote.automation'
+export { randomQuote } from './randomQuote.automation'

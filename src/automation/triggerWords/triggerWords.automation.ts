@@ -5,10 +5,10 @@ import {
 } from './triggerWords.resources'
 import { getEmoji } from '../../utils/emojis.utils'
 import { randInt } from '../../utils/random.utils'
-import { Automation } from '../../model'
+import { Automation, AutomationRunner } from '../../model'
 import { Collection, GuildEmoji } from 'discord.js'
 
-export const triggerWords: Automation = (message, clientUser, state) => {
+const triggerWordsRunner: AutomationRunner = (message, clientUser, state) => {
 	const cooldown = state.coolDowns.triggerWords
 	const emojiList = message.guild?.emojis.cache
 
@@ -54,4 +54,10 @@ export const triggerWordsProcessor = (
 
 	const emoji = getEmoji(quoteEntry.emoji, emojiList)
 	return `${quoteEntry.quote} ${emoji}`
+}
+
+export const triggerWords: Automation = {
+	role: 'message',
+	antiAffinities: ['message'],
+	runner: triggerWordsRunner,
 }

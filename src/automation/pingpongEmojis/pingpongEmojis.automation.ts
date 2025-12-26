@@ -5,12 +5,12 @@ import {
 } from './pingpongEmojis.resources'
 import { randInt } from '../../utils/random.utils'
 import { extractEmojis, getEmoji, getEmojiName } from '../../utils/emojis.utils'
-import { Automation } from '../../model'
+import { Automation, AutomationRunner } from '../../model'
 import { Collection, GuildEmoji } from 'discord.js'
 import { isDifferentAuthor } from '../../utils/message.utils'
 import { devModeLog } from '../../utils/function.utils'
 
-export const pingpongEmojis: Automation = (message, clientUser, state) => {
+const pingpongEmojisRunner: AutomationRunner = (message, clientUser, state) => {
 	const { lastMessage } = state
 	const { channel } = message
 	const emojiList = message.guild?.emojis.cache
@@ -74,4 +74,10 @@ export const pingpongEmojisProcessor = (
 	const emoji2 = getEmoji(splitedKey.at(1)!, emojiList)
 
 	return `${emoji1} ${quote} ${emoji2}`
+}
+
+export const pingpongEmojis: Automation = {
+	role: 'message',
+	antiAffinities: ['message'],
+	runner: pingpongEmojisRunner,
 }
