@@ -30,13 +30,9 @@ jspm_packages/
 # Output of 'npm pack'
 *.tgz
 
-# Yarn Integrity file
-.yarn-integrity
-
-.yarn/cache
-.yarn/install-state.gz
-
-
 config.json
 .env
 dist*
+
+# Script generated files
+src/automation/randomQuote/resources/*.json

@@ -14,14 +14,17 @@ const randomQuoteRunner: AutomationRunner = (message, clientUser, state) => {
 	const quoteEntry = RANDOM_QUOTES.at(quoteEntryIndex)
 	if (!quoteEntry || quoteEntry.quotes.length === 0) return
 
-	const quoteIndex = randInt(0, quoteEntry.quotes.length)
-	const quote = quoteEntry.quotes.at(quoteIndex)
+	const activeQuotes = quoteEntry.quotes.filter(({ active }) => active)
+
+	const quoteIndex = randInt(0, activeQuotes.length)
+	const quote = activeQuotes.at(quoteIndex)
 
 	const emote = getEmoji(quoteEntry.emoji, emojiList)
 
 	if (!quote || !emote) return
 
-	message.channel.send(`${emote} ${quote}`)
+	const content = quote.custom ?? quote.original
+	message.channel.send(`${emote} ${content}`)
 	return true
 }
 
