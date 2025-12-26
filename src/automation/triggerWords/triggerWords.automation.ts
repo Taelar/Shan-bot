@@ -20,6 +20,7 @@ const triggerWordsRunner: AutomationRunner = (message, clientUser, state) => {
 
 	message.channel.send(answer)
 	state.coolDowns.triggerWords = new Date()
+	return true
 }
 
 export const triggerWordsProcessor = (

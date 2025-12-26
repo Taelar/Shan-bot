@@ -10,9 +10,10 @@ const emoteOnMentionRunner: AutomationRunner = (message, clientUser, state) => {
 		message.mentions.has(clientUser)
 	) {
 		const emoji = findEmoji(EMOJI_NAME, message)
-		if (emoji) {
-			message.react(emoji)
-		}
+		if (!emoji) return
+
+		message.react(emoji)
+		return true
 	}
 }
 

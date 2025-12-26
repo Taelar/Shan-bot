@@ -6,9 +6,8 @@ import {
 	randomReaction,
 	triggerWords,
 } from '../automation'
-import { Automation, AutomationRunner } from '../model'
+import { Automation, AutomationRole, AutomationRunner } from '../model'
 
-// Todo : anti-affinité : dual emojis & pingpong & randomQuotes
 const automationFunctions: Automation[] = [
 	randomReaction,
 	emoteOnMention,
@@ -18,9 +17,25 @@ const automationFunctions: Automation[] = [
 	pingpongEmojis,
 ]
 
-export const onMessage: AutomationRunner = (message, clientUser, state) => {
+export const onMessage: (...args: Parameters<AutomationRunner>) => void = (
+	message,
+	clientUser,
+	state,
+) => {
 	if (message.member?.user.bot) return
 
-	automationFunctions.forEach((aut) => aut.runner(message, clientUser, state))
+	const activeAutomations: Set<AutomationRole> = new Set()
+	automationFunctions.forEach(({ runner, role, antiAffinities }) => {
+		if (
+			antiAffinities.find((antiAffinity) => activeAutomations.has(antiAffinity))
+		)
+			return
+
+		const hasPerfomedAnAction = runner(message, clientUser, state)
+		if (hasPerfomedAnAction) {
+			activeAutomations.add(role)
+		}
+	})
+
 	state.lastMessage = message
 }

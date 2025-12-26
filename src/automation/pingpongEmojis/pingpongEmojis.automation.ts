@@ -28,8 +28,8 @@ const pingpongEmojisRunner: AutomationRunner = (message, clientUser, state) => {
 	if (!answer) return
 
 	channel.send(answer)
-	// Reset du last message
-	state.lastMessage = null
+
+	return true
 }
 
 export const pingpongEmojisProcessor = (

@@ -29,8 +29,8 @@ const dualEmojisRunner: AutomationRunner = (message, clientUser, state) => {
 	if (!answer) return
 
 	message.channel.send(answer)
-	// Reset du last message
-	state.lastMessage = null
+
+	return true
 }
 
 export const dualEmojiProcessor = (
@@ -41,10 +41,15 @@ export const dualEmojiProcessor = (
 ) => {
 	const currentEmojis = extractEmojis(currentMessage, emojiList)
 	const lastEmojis = extractEmojis(lastMessage, emojiList)
-	if (!currentEmojis.length || !lastEmojis.length) return
 
 	const emojiIntersection = currentEmojis.filter((emoji) =>
 		lastEmojis.includes(emoji),
+	)
+	devModeLog(
+		'dual emojis intersection',
+		JSON.stringify(currentEmojis),
+		JSON.stringify(lastEmojis),
+		JSON.stringify(emojiIntersection),
 	)
 	if (!emojiIntersection.length) return
 
@@ -65,7 +70,7 @@ export const dualEmojiProcessor = (
 
 	const dedicatedQuotes = quotes[emojiName]
 	devModeLog(
-		'dual emojis',
+		'dual emojis dedicatedQuotes',
 		JSON.stringify(emoji),
 		JSON.stringify(dedicatedQuotes),
 	)

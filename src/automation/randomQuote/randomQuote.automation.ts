@@ -22,6 +22,7 @@ const randomQuoteRunner: AutomationRunner = (message, clientUser, state) => {
 	if (!quote || !emote) return
 
 	message.channel.send(`${emote} ${quote}`)
+	return true
 }
 
 export const randomQuote: Automation = {

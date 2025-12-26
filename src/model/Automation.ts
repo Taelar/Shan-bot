@@ -8,12 +8,13 @@ export type AutomationRole = 'message' | 'reaction'
  * @param message The message that was just sent
  * @param clientUser The clientUser used by the bot
  * @param state The bot current state
+ * @returns boolean Whether the automation performed an action or not
  */
 export type AutomationRunner = (
 	message: Message,
 	clientUser: ClientUser,
 	state: BotState,
-) => void
+) => boolean | undefined
 
 /**
  * An Automation is a function that runs every time a message is sent on a watched
