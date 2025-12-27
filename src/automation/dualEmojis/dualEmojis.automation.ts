@@ -77,7 +77,7 @@ export const dualEmojiProcessor = (
 
 	if (!emoji || !dedicatedQuotes) return
 
-	const formatedEmojisQuotes = dedicatedQuotes.emojis.map(
+	const formatedEmojisQuotes = dedicatedQuotes.quotes.map(
 		(quote) => `${emoji} ${quote} ${emoji}`,
 	)
 	const possibleQuotes_ = [...formatedEmojisQuotes, ...dedicatedQuotes.links]

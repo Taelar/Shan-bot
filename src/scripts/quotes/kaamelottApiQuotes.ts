@@ -26,7 +26,7 @@ type APIErrorResponse = {
 
 type APIListResponse = APIListSuccessResponse | APIErrorResponse
 
-type APICharacter = 'Perceval' | 'é'
+type APICharacter = 'Perceval' | 'Léodagan'
 
 export const updateKaamelottApiQuotes = async (
 	apiCharacter: APICharacter,

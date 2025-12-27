@@ -22,9 +22,9 @@
 		"commands:build": "tsc deploy-commands.ts --outDir dist --moduleResolution nodenext --skipLibCheck true",
 		"commands:guild": "node --env-file=.env dist/deploy-commands.js -- global=false",
 		"commands:global": "node --env-file=.env dist/deploy-commands.js -- global=true",
-		"script:quotes:build": "ncc build src/scripts/index.ts -o dist/scripts",
-		"script:quotes:start": "node dist/scripts",
-		"script:quotes": "npm run script:quotes:build && npm run script:quotes:start"
+		"quotes:build": "ncc build src/scripts/index.ts -o dist/scripts",
+		"quotes:start": "node dist/scripts",
+		"quotes": "npm run quotes:build && npm run quotes:start"
 	},
 	"dependencies": {
 		"@discordjs/builders": "^0.12.0",
