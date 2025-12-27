@@ -16,7 +16,7 @@ const randomQuoteRunner: AutomationRunner = (message, clientUser, state) => {
 
 	const activeQuotes = quoteEntry.quotes.filter(({ active }) => active)
 
-	const quoteIndex = randInt(0, activeQuotes.length)
+	const quoteIndex = randInt(0, activeQuotes.length - 1)
 	const quote = activeQuotes.at(quoteIndex)
 
 	const emote = getEmoji(quoteEntry.emoji, emojiList)
