@@ -57,7 +57,7 @@ export const dualEmojiProcessor = (
 		.map(({ name }) => name)
 		.filter(isDefined)
 
-	const emojiRand = randInt(0, sanitiziedEmojis.length)
+	const emojiRand = randInt(0, sanitiziedEmojis.length - 1)
 	const emojiName = sanitiziedEmojis.at(emojiRand)
 	if (!emojiName) return
 
@@ -80,14 +80,14 @@ export const dualEmojiProcessor = (
 	const formatedEmojisQuotes = dedicatedQuotes.quotes.map(
 		(quote) => `${emoji} ${quote} ${emoji}`,
 	)
-	const possibleQuotes_ = [...formatedEmojisQuotes, ...dedicatedQuotes.links]
+	const possibleQuotes = [...formatedEmojisQuotes, ...dedicatedQuotes.links]
 
-	if (possibleQuotes_.length === 0) {
+	if (possibleQuotes.length === 0) {
 		return emoji.toString()
 	}
 
-	const rand = randInt(0, possibleQuotes_.length)
-	const quote = possibleQuotes_.at(rand)
+	const rand = randInt(0, possibleQuotes.length - 1)
+	const quote = possibleQuotes.at(rand)
 
 	return quote
 }

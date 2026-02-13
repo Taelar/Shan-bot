@@ -7,7 +7,7 @@ const MAX_RAND = 125
 
 const randomQuoteRunner: AutomationRunner = (message, clientUser, state) => {
 	const emojiList = message.guild?.emojis.cache
-	const shouldSendQuote = randInt(0, MAX_RAND)
+	const shouldSendQuote = randInt(0, MAX_RAND - 1)
 	if (shouldSendQuote !== 0 || !emojiList) return
 
 	const quoteEntryIndex = randInt(0, RANDOM_QUOTES.length - 1)

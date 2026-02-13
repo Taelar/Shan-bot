@@ -8,7 +8,7 @@ const randomReactionRunner: AutomationRunner = (message, clientUser, state) => {
 	const rand = randInt(0, MAX_RAND)
 	if (rand !== 0) return
 
-	const emojiRand = randInt(0, EMOJI_KEYS.length)
+	const emojiRand = randInt(0, EMOJI_KEYS.length - 1)
 	const chosenEmojiKey = EMOJI_KEYS[emojiRand]
 
 	const chosenEmoji = findEmoji(chosenEmojiKey, message)

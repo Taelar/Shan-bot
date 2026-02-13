@@ -48,7 +48,7 @@ export const triggerWordsProcessor = (
 
 	const triggerKey = foundTriggerEntry[0] as TriggerWordsKey
 	const quotes = TRIGGER_WORDS_QUOTES[triggerKey]
-	const quoteRand = randInt(0, quotes.length)
+	const quoteRand = randInt(0, quotes.length - 1)
 	const quoteEntry = quotes[quoteRand]
 
 	if (!quoteEntry) return

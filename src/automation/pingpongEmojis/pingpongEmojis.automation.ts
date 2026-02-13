@@ -63,7 +63,7 @@ export const pingpongEmojisProcessor = (
 	)
 	if (!quotes.length) return
 
-	const rand = randInt(0, quotes.length)
+	const rand = randInt(0, quotes.length - 1)
 	const quote = quotes.at(rand)
 	if (!quote) return
 
