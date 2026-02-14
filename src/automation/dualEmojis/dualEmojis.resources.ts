@@ -227,4 +227,8 @@ export const DUAL_EMOJIS_QUOTES: DualEmojisDict = {
 			'https://tenor.com/view/kaamelott-leodagan-ambiance-merde-pourri-gif-18227700',
 		],
 	},
+	Rocket_hu: {
+		quotes: ['UH', 'Uhuhuhuhuhuhuhuhhuhu', 'gngNGngNgngNgngNgnGNgngNg'],
+		links: [],
+	},
 }
